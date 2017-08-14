@@ -43,8 +43,12 @@ var quesDecision = "What do we want from life?";
 var decDecision = "Happiness";
 var emailDecision = "abc@gmail.com";
 
+var quesFollowup = "What do we want from life?";
+var decFollowup = "Happiness";
+var folFollowup = "task1, date; task2, date"; //followup task with due date
 
-var followupDecision = "task1,task2";  //comma seperated list of string
+
+//var followupDecision = "task1,task2";  //comma seperated list of string
 
 //var data = '{"email":"shapla@gmail.com", "info":{"password":"1234"}}';
 
@@ -164,6 +168,35 @@ var paramsDeleteDecision = {
     TableName:tableNameDecision,
     Key:{
       "question": quesDecision
+    }
+};
+
+//create params for Followup table
+
+var paramsInsertFollowup = {
+    TableName:tableNameFollowup,
+    Item:{
+        "question": quesFollowup,
+        "info":{
+            "decision": decFollowup,  //one of the answers
+            "followup": folFollowup   //followup task with due dates
+        }
+    }
+};
+
+//create params for reading from Decision Table
+var paramsReadFollowup = {
+    TableName: tableNameFollowup,
+    Key:{
+      "question": quesFollowup
+    }
+};
+
+//create params for deleting from Decision Table
+var paramsDeleteFollowup = {
+    TableName:tableNameFollowup,
+    Key:{
+      "question": quesFollowup
     }
 };
 
