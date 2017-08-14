@@ -43,7 +43,7 @@ var quesDecision = "What do we want from life?";
 var decDecision = "Happiness";
 var emailDecision = "abc@gmail.com";
 
- 
+
 var followupDecision = "task1,task2";  //comma seperated list of string
 
 //var data = '{"email":"shapla@gmail.com", "info":{"password":"1234"}}';
@@ -144,7 +144,7 @@ var paramsInsertDecision = {
     Item:{
         "question": quesDecision,
         "info":{
-            "decision": decDecision,
+            "decision": decDecision,  //one of the answers
             //"followup": followupDecision
             "email": emailDecision  //whose answer was selected
         }

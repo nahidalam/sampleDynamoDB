@@ -176,8 +176,8 @@ const tablePromise3 = dynamodb.listTables({})
 });
 
 
-/*
-//make followup part of decision table
+
+//needed create followup page
 const tablePromise4 = dynamodb.listTables({})
       .promise()
       .then((data) => {
@@ -198,6 +198,7 @@ const tablePromise4 = dynamodb.listTables({})
                                     AttributeDefinitions: [
                                         { AttributeName: "question", AttributeType: "S" }
                                         //{ AttributeName: "decision", AttributeType: "S" }
+                                        //{ AttributeName: "followupwdate", AttributeType: "S" }
                                     ],
                                     ProvisionedThroughput: {
                                         ReadCapacityUnits: 10,
@@ -215,4 +216,3 @@ const tablePromise4 = dynamodb.listTables({})
                                 });
                             }
 });
-*/
