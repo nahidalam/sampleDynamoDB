@@ -199,9 +199,18 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('insertDecision', function (message) {
+      console.log('Received insert decision request:' + message);
+      paramsInsertDecision = message;
+      insertAtTable(paramsInsertDecision);
+      console.log('Created Decision Entry in Database:' + message);
+
 
     });
     socket.on('readDecision', function (message) {
+      console.log('Received read decision request:' + message);
+      paramsReadDecision = message;
+      readFromTable(paramsReadDecision);
+      console.log('Read Decision from Database:' + message);
 
     });
     socket.on('deleteDecision', function (message) {

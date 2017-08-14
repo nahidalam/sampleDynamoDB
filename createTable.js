@@ -155,7 +155,9 @@ const tablePromise3 = dynamodb.listTables({})
                                     ],
                                     AttributeDefinitions: [
                                         { AttributeName: "question", AttributeType: "S" }
-                                        //{ AttributeName: "decision", AttributeType: "S" }
+                                        //{ AttributeName: "decision", AttributeType: "S" }, //one of the answer
+                                        //{ AttributeName: "email", AttributeType: "S" }  //whose answer is selected as a decision
+
                                     ],
                                     ProvisionedThroughput: {
                                         ReadCapacityUnits: 10,
