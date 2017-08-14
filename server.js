@@ -5,6 +5,20 @@ var path = require("path");
 var ent = require('ent');
 
 
+var AWS = require('aws-sdk');
+var credentials = new AWS.SharedIniFileCredentials({profile: 'default'});
+AWS.config.credentials = credentials;
+
+AWS.config.update({
+  region: 'us-east-2',
+  endpoint: "http://localhost:8000"
+});
+var dynamodb = new AWS.DynamoDB();
+var docClient = new AWS.DynamoDB.DocumentClient();
+
+
+
+
 /*Server Creation*/
 var server = http.createServer(function(request, response) {
 
@@ -97,54 +111,101 @@ var server = http.createServer(function(request, response) {
 
 /*End of Server Creation*/
 
-var AWS = require('aws-sdk');
-var credentials = new AWS.SharedIniFileCredentials({profile: 'default'});
-AWS.config.credentials = credentials;
+/*Database related operations*/
 
-AWS.config.update({
-  region: 'us-east-2',
-  endpoint: "http://localhost:8000"
-});
-var dynamodb = new AWS.DynamoDB();
+var paramsInsertLogin;
+var paramsInsertQuestion;
+var paramsReadQuestion;
+var paramsDeleteQuestion;
+var paramsInsertAnswer;
+var paramsReadAnswer;
+var paramsDeleteAnswer;
+var paramsInsertDecision;
+var paramsReadDecision;
+var paramsDeleteDecision;
+
+
+
+function insertAtTable(params){
+
+  docClient.put(params, function(err, data) {
+    if (err) {
+        console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+    } else {
+        console.log("Added item:", JSON.stringify(data, null, 2));
+    }
+  });
+}
+
+function readFromTable (params){
+
+  docClient.get(params, function(err, data) {
+      if (err) {
+          console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+      } else {
+          console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
+
+      }
+      result = JSON.stringify(data, null, 2);
+      console.log ("got result");
+      console.log (result);
+  });
+
+}
+
+function deleteFromTable (params){
+  docClient.delete(params, function(err, data) {
+    if (err) {
+        console.error("Unable to delete item. Error JSON:", JSON.stringify(err, null, 2));
+    } else {
+        console.log("DeleteItem succeeded:", JSON.stringify(data, null, 2));
+    }
+  });
+}
+
+/*End of Database operation*/
 
 
 
 // Loading socket.io
 var io = require('socket.io').listen(server);
 io.sockets.on('connection', function (socket) {
-
-    //socket.emit('A', currentIndex);
-    socket.emit('card', currentIndex);
     // When a "message" is received (click on the button), it's logged in the console
-    socket.on('card', function (message) {
-        console.log(' Received:' + message);
-        currentIndex = message;
-        socket.broadcast.emit('card', message);
-        console.log(' Sent:' + message);
+    socket.on('login', function (message) {
+        console.log(' Received login request:' + message);
+        paramsInsertLogin = message;
+        insertAtTable(paramsInsertLogin);
+        console.log('Created Entry in Database:' + message);
     });
 
-    socket.on('reset', function (message) {
-        console.log(' Received:' + message);
-        currentIndex = null;
-        socket.broadcast.emit('reset', message);
+    socket.on('insertQuestion', function (message) {
+
+    });
+    socket.on('readQuestion', function (message) {
+
+    });
+    socket.on('deleteQuestion', function (message) {
+
     });
 
-  /*  socket.on('ask', function (message) {
-        console.log(' Received:' + message);
-        socket.broadcast.emit('A', currentIndex);
-        console.log(' Sent Ask reply:' + currentIndex);
-    });*/
+    socket.on('insertAnswer', function (message) {
 
-    socket.on('finger', function (message) {
-        console.log(' Received:' + message);
-        socket.broadcast.emit('finger', message);
-        console.log("sent finger");
+    });
+    socket.on('readAnswer', function (message) {
+
+    });
+    socket.on('deleteAnswer', function (message) {
+
     });
 
-    socket.on('flash', function (message) {
-        console.log(' Received:' + message);
-        socket.broadcast.emit('flash', message);
-        console.log("sent flash");
+    socket.on('insertDecision', function (message) {
+
+    });
+    socket.on('readDecision', function (message) {
+
+    });
+    socket.on('deleteDecision', function (message) {
+
     });
 
 });
