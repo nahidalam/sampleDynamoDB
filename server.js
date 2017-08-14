@@ -123,6 +123,9 @@ var paramsDeleteAnswer;
 var paramsInsertDecision;
 var paramsReadDecision;
 var paramsDeleteDecision;
+var paramsInsertFollowup;
+var paramsReadFollowup;
+var paramsDeleteFollowup;
 
 
 
@@ -199,6 +202,7 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('insertDecision', function (message) {
+      //called after submitting a decision at the view answer page
       console.log('Received insert decision request:' + message);
       paramsInsertDecision = message;
       insertAtTable(paramsInsertDecision);
@@ -207,6 +211,7 @@ io.sockets.on('connection', function (socket) {
 
     });
     socket.on('readDecision', function (message) {
+      //called at view decision page
       console.log('Received read decision request:' + message);
       paramsReadDecision = message;
       readFromTable(paramsReadDecision);
@@ -214,6 +219,27 @@ io.sockets.on('connection', function (socket) {
 
     });
     socket.on('deleteDecision', function (message) {
+
+    });
+
+    socket.on('insertFollowup', function (message) {
+      //called at create followup page
+      console.log('Received insert followup request:' + message);
+      paramsInsertFollowup = message;
+      insertAtTable(paramsInsertFollowup);
+      console.log('Created Followup Entry in Database:' + message);
+
+
+    });
+    socket.on('readFollowup', function (message) {
+      //called at view decision page under status of the followup
+      console.log('Received read followup request:' + message);
+      paramsReadFollowup = message;
+      readFromTable(paramsReadFollowup);
+      console.log('Read Followup from Database:' + message);
+
+    });
+    socket.on('deleteFollowup', function (message) {
 
     });
 

@@ -205,7 +205,7 @@ var paramsDeleteFollowup = {
 
 //insertAtTable(paramsInsertLogin);
 var result;
-readFromTable (paramsReadLogin);
+//readFromTable (paramsReadLogin);
 //deleteFromTable (paramsDeleteLogin);
 //console.log ("got global result");
 //console.log (result);
