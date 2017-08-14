@@ -1,0 +1,52 @@
+body{
+	background-color: black;
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	text-align: center;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+#content{
+	width: 100%;
+	height: calc(100% - 100px);
+}
+
+img{
+	height: 100%
+}
+
+.swiper-container {
+	width: 100%;
+	height: 90%;
+}
+#fingerprint{
+	display: none;
+	/*width: 100%;*/
+	height: 50%;
+	position: absolute;
+	top: 52%;
+	left: 292px;
+}
+#fingerprintXYZ{
+	display: none;
+	/*width: 100%;*/
+	height: 50%;
+	position: absolute;
+	top: 52%;
+	left: 292px;
+}
+
+.button{
+	background-color: white;
+    border: none;
+    color: black;
+    padding: 15px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    margin-top: -60px;
+		margin-left: 20px;
+}
