@@ -2,8 +2,7 @@
     <head>
         <meta charset="utf-8">
 
-        <link rel="stylesheet" href="/css/control.css">
-        <link rel="stylesheet" href="/css/swiper.min.css">
+        <link rel="stylesheet" href="/css/followup.css">
 
         <script src="js/jquery-1.11.0.min.js"></script>
         <!--<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>-->
@@ -13,32 +12,10 @@
         <script src="js/followup.js"></script>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.94.0.min.js"></script>
 
-        <title>Follow Up</title>
+        <title>Create Follow Up</title>
     </head>
     <body>
-      <div id="content">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img class = "cardimage" src="img/cards/ace_of_spades.png"></div>
-                <div class="swiper-slide"><img class = "cardimage" src="img/cards/king_of_spades2.png"></div>
-                <div class="swiper-slide"><img class = "cardimage" src="img/cards/queen_of_spades2.png"></div>
-                <div class="swiper-slide"><img class = "cardimage" src="img/cards/jack_of_spades2.png"></div>
-                <div class="swiper-slide"><img class = "cardimage" src="img/cards/10_of_spades.png"></div>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <div id="fingerprint"><img src="/img/ABC.jpg"></div>
-            <div id="fingerprintXYZ"><img src="/img/XYZ.jpg"></div>
-        </div>
-      </div>
-      <div id="buttons">
-        <button class="button" id="select">Select</button>
-        <button class="button" id="btnLocal" style="display: none;">Local</button>
-        <button class="button" id="btnDist" style="display: none;">Distributed</button>
-        <button class="button" id="btnGT" style="display: none;">Hybrid</button>
-        <button class="button" id="btnReSelectLocal" style="display: none;">Re-Select</button>
-        <button class="button" id="btnReSelectDist" style="display: none;">Re-Select</button>
-        <button class="button" id="btnReSelectGT" style="display: none;">Re-Select</button>
-      </div>
+      <button id="populateMenu">Populate Question</button>
+      <select id="quesSelect"></select>
     </body>
 </html>

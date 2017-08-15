@@ -17,27 +17,6 @@ img{
 	height: 100%
 }
 
-.swiper-container {
-	width: 100%;
-	height: 90%;
-}
-#fingerprint{
-	display: none;
-	/*width: 100%;*/
-	height: 50%;
-	position: absolute;
-	top: 52%;
-	left: 292px;
-}
-#fingerprintXYZ{
-	display: none;
-	/*width: 100%;*/
-	height: 50%;
-	position: absolute;
-	top: 52%;
-	left: 292px;
-}
-
 .button{
 	background-color: white;
     border: none;
