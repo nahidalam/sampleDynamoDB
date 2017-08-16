@@ -2,17 +2,18 @@ $( document ).ready(function() {
 
 	//var socket = io.connect('http://www.ciscochill.com:80');
 	var socket = io.connect('http://localhost:8080');
+	//var socket = io();
 
 	//read from database and create based on questions whose decision has been taken already
 	var optionValues= [[1,"first"],[2,"second"]];
 
-  jQuery("#populateMenu").click( function () {
+  $("#populateMenu").click( function () {
         for (var i=0;i<optionValues.length;i++){
-            jQuery('#quesSelect').append(jQuery("<option></option>").val(optionValues[i][0]).text(optionValues[i][1]))
+            $('#quesSelect').append(("<option></option>").val(optionValues[i][0]).text(optionValues[i][1]))
         }
-    });
+			})
 
-	$("#select").click(function(){
+	/*$("#select").click(function(){
 		//what happens when question arrow drag&drop clicked?
 		//reads all questions whose decision has been taken and shows them
 
@@ -30,4 +31,6 @@ $( document ).ready(function() {
 		socket.emit('insertFollowup',tableJSON);
 		console.log ("sent database insert request at Followup Table" + index);
 
-	})
+	}) */
+
+});

@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="js/jquery-1.11.0.min.js"></script>
+
+</head>
+<body>
+<button id="populateMenu" >Populate menu</button>
+
+<select id="mySelect">
+
+
+</select>
+
+<script>
+    var optionValues= [[1,"first"],[2,"second"]];
+
+    jQuery("#populateMenu").click( function () {
+        for (var i=0;i<optionValues.length;i++){
+            jQuery('#mySelect').append(jQuery("<option></option>").val(optionValues[i][0]).text(optionValues[i][1]))
+        }
+    });
+</script>
+</body>
+</html>

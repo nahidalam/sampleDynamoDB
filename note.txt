@@ -1,0 +1,29 @@
+//how to send multipart message through socket.emit
+
+https://stackoverflow.com/questions/20632401/how-to-send-two-variables-in-one-message-using-socket-io
+
+
+socket.emit('eventToClient',{ id: userid, name: username });
+
+and on the client
+
+ socket.on('eventToClient',function(data) {
+    // do something with data
+       var id = data.id
+       var name = data.username
+
+ });
+
+
+//another option, create JSON packet before sending to the server from client js
+ $('form').submit(function(){
+var loginDetails={
+    userid : userid,
+    username : username
+    };
+client.emit('sentMsg',loginDetails);
+}
+
+//so how do we retrieve the data in the server? same as the above example
+//more importantly, we do not need to retrieve individual data,
+//server can directly send it to DynamoDB function
