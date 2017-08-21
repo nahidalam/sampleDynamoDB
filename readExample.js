@@ -9,25 +9,28 @@ AWS.config.update({
 var dynamodb = new AWS.DynamoDB();
 var docClient = new AWS.DynamoDB.DocumentClient()
 
-/*var table = "Movies";
 
-var year = 2015;
-var title = "The Big New Movie";
 
-var params = {
-    TableName: table,
-    Key:{
-        "year": year,
-        "title": title
-    }
-};*/
 
-var tableLogin = "Login";
+var tableNameLogin = "Login"
+var tableNameQuestion = "Question"
+var tableNameAnswer = "Answer"
+var tableNameDecision = "Decision"
+var tableNameFollowup = "Followup"
 
 var emailLogin = "shapla@gmail.com";
+var pass = "1234";
+
+var quesDecision = "What do we want from life?";
+var decDecision = "Happiness";
+var emailDecision = "abc@gmail.com";
+
+
+/* params for loginTable*/
+
 
 var params = {
-    TableName: tableLogin,
+    TableName: tabletableNameLogin,
     Key:{
         "email": emailLogin
     }

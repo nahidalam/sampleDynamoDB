@@ -39,9 +39,13 @@ var emailAnswer = "shapla@gmail.com";  //person replying, only one emailAnswer
 var quesAnswer = "What do we want from life?";
 var ansAnswer = "Happiness?";
 
-var quesDecision = "What do we want from life?";
-var decDecision = "Happiness";
-var emailDecision = "abc@gmail.com";
+//var quesDecision = "What do we want from life?";
+//var decDecision = "Happiness";
+//var emailDecision = "abc@gmail.com";
+//2nd set of entry @ decision table
+var quesDecision = "How many vacation days you want a year?";
+var decDecision = "100";
+var emailDecision = "nahid@gmail.com";
 
 var quesFollowup = "What do we want from life?";
 var decFollowup = "Happiness";
@@ -111,6 +115,12 @@ var paramsDeleteQuestion = {
 };
 
 
+//params for scanning the Question table
+var paramsDeleteQuestion = {
+    TableName:tableNameQuestion
+};
+
+
 //create params for inserting into Answer Table
 var paramsInsertAnswer = {
     TableName:tableNameAnswer,
@@ -139,6 +149,12 @@ var paramsDeleteAnswer = {
       "question": quesQuestion,
       "email": emailQuestion
     }
+};
+
+
+//params for scanning the Answer Table
+var paramsScanAnswer = {
+    TableName:tableNameAnswer
 };
 
 
@@ -171,6 +187,10 @@ var paramsDeleteDecision = {
     }
 };
 
+var paramsScanDecision = {
+    TableName:tableNameDecision
+};
+
 //create params for Followup table
 
 var paramsInsertFollowup = {
@@ -200,22 +220,26 @@ var paramsDeleteFollowup = {
     }
 };
 
+var paramsScanFollowup = {
+    TableName:tableNameFollowup
+};
+
+
+var result;
 
 /*Do the function call*/
 
 //insertAtTable(paramsInsertLogin);
-var result;
 //readFromTable (paramsReadLogin);
 //deleteFromTable (paramsDeleteLogin);
 //console.log ("got global result");
 //console.log (result);
 
+//insertAtTable(paramsInsertDecision);
+//readFromTable (paramsReadDecision);
+//deleteFromTable (paramsDeleteDecision);
+scanFromTable (paramsScanDecision);
 
-/*Parameters for Question Table*/
-
-/*Parameters for Answer Table*/
-
-/*Parameters for Decision Table*/
 
 
 
@@ -253,6 +277,17 @@ function deleteFromTable (params){
         console.error("Unable to delete item. Error JSON:", JSON.stringify(err, null, 2));
     } else {
         console.log("DeleteItem succeeded:", JSON.stringify(data, null, 2));
+    }
+  });
+}
+
+
+function scanFromTable (params){
+  docClient.scan(params, function(err, data) {
+    if (err) {
+        console.error("Unable to Scan the table. Error JSON:", JSON.stringify(err, null, 2));
+    } else {
+        console.log("Scan succeeded:", JSON.stringify(data, null, 2));
     }
   });
 }

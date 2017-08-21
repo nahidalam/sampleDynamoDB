@@ -8,6 +8,8 @@ $( document ).ready(function() {
 	var optionValues= [[1,"first"],[2,"second"]];
 
   $("#populateMenu").click( function () {
+				//read from Decision table, put all the entries of the questions column
+				//in optionValues variable
         for (var i=0;i<optionValues.length;i++){
             $('#quesSelect').append(jQuery("<option></option>").val(optionValues[i][0]).text(optionValues[i][1]))
         }
