@@ -238,7 +238,30 @@ var result;
 //insertAtTable(paramsInsertDecision);
 //readFromTable (paramsReadDecision);
 //deleteFromTable (paramsDeleteDecision);
-scanFromTable (paramsScanDecision);
+//scanFromTable (paramsScanDecision);
+
+function readFromTable(params) {
+  return new Promise((resolve, reject) => {
+    docClient.get(params, function(err, data) {
+      if (err) {
+          console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+          return reject(err);
+      } else {
+          console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
+          result = JSON.stringify(data, null, 2);
+          //console.log ("got result");
+          return resolve(result);
+      }
+    });
+  });
+}
+
+readFromTable(paramsReadDecision).then((results) => {
+  console.log('You got your results');
+  console.log (result);
+  //from the parameters I passed, I already know which table I am reading
+  //so parse the items accordingly
+});
 
 
 
@@ -254,7 +277,7 @@ function insertAtTable(params){
   });
 }
 
-function readFromTable (params){
+/*function readFromTable (params){
 
   docClient.get(params, function(err, data) {
       if (err) {
@@ -269,7 +292,7 @@ function readFromTable (params){
       console.log (result);
   });
 
-}
+}*/
 
 function deleteFromTable (params){
   docClient.delete(params, function(err, data) {
