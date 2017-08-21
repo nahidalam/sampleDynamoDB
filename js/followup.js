@@ -9,7 +9,7 @@ $( document ).ready(function() {
 
   $("#populateMenu").click( function () {
         for (var i=0;i<optionValues.length;i++){
-            $('#quesSelect').append(("<option></option>").val(optionValues[i][0]).text(optionValues[i][1]))
+            $('#quesSelect').append(jQuery("<option></option>").val(optionValues[i][0]).text(optionValues[i][1]))
         }
 			})
 
