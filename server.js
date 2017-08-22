@@ -140,20 +140,19 @@ function insertAtTable(params){
   });
 }
 
-function readFromTable (params){
-
-  docClient.get(params, function(err, data) {
+function readFromTable(params) {
+  return new Promise((resolve, reject) => {
+    docClient.get(params, function(err, data) {
       if (err) {
           console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+          return reject(err);
       } else {
           console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-
+          result = JSON.stringify(data, null, 2);
+          return resolve(result);
       }
-      result = JSON.stringify(data, null, 2);
-      console.log ("got result");
-      console.log (result);
+    });
   });
-
 }
 
 function deleteFromTable (params){
@@ -163,6 +162,21 @@ function deleteFromTable (params){
     } else {
         console.log("DeleteItem succeeded:", JSON.stringify(data, null, 2));
     }
+  });
+}
+
+function scanFromTable(params) {
+  return new Promise((resolve, reject) => {
+    docClient.scan(params, function(err, data) {
+      if (err) {
+          console.error("Unable to Scan Table. Error JSON:", JSON.stringify(err, null, 2));
+          return reject(err);
+      } else {
+          console.log("Scan succeeded:", JSON.stringify(data, null, 2));
+          result = JSON.stringify(data, null, 2);
+          return resolve(result);
+      }
+    });
   });
 }
 
@@ -207,8 +221,6 @@ io.sockets.on('connection', function (socket) {
       paramsInsertDecision = message;
       insertAtTable(paramsInsertDecision);
       console.log('Created Decision Entry in Database:' + message);
-
-
     });
     socket.on('readDecision', function (message) {
       //called at view decision page
@@ -219,12 +231,15 @@ io.sockets.on('connection', function (socket) {
 
     });
     socket.on('scanDecision', function (message) {
-      //called at view decision page
-      console.log('Received scan decision request:' + message);
-      paramsReadDecision = message;
-      scanFromTable(paramsReadDecision);
-      console.log('Read Decision from Database:' + message);
+      //called from followup create page
+      console.log('Received scan decision table req:' + message);
 
+      scanFromTable(message).then((results) => {
+        console.log('You got Scan results');
+        console.log (results);
+        socket.emit('scanDecisionResults', results);
+        console.log('Scan Done from Decision Table:' + results);
+      });
     });
     socket.on('deleteDecision', function (message) {
 

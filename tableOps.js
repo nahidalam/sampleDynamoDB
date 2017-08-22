@@ -316,7 +316,7 @@ function scanFromTable(params) {
   });
 }
 
-scanFromTable(paramsReadDecision).then((results) => {
+scanFromTable(paramsScanDecision).then((results) => {
   console.log('You got Scan results');
   console.log (results);
   console.log('Parsing Scan DynamoDB JSON');
