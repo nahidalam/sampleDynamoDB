@@ -6,7 +6,6 @@ $( document ).ready(function() {
 	//read from database and create based on questions whose decision has been taken already
 	var tableNameDecision = "Decision"
 	var tableNameFollowup = "Followup"
-	//var optionValues= [[1,"first"],[2,"second"]];
 	var selectOptions = [];
 
   $("#populateMenu").click( function () {
@@ -41,9 +40,14 @@ $( document ).ready(function() {
 				}
 
 				var options = '';
-				for (var i=0;i<count;i++){
+				for (var i=0;i<=count;i++){
 						selectOptions[i] = [];
-						selectOptions[i][0] = qArray[i];
+				}
+				selectOptions[0][0] = "Selct a Question";
+				for (var j=1;j<=count;j++){
+						selectOptions[j][0] = qArray[j-1];
+					}
+				for (var i=0;i<=count;i++){
 						options += '<option value="' + selectOptions[i][0]+ '">' + selectOptions[i][0] + '</option>';
 				}
 				$("#quesSelect").html(options);
@@ -51,11 +55,11 @@ $( document ).ready(function() {
 	    });
 
 	$("#quesSelect").click(function(){
-		//what happens when question arrow drag&drop clicked?
-		//reads all questions whose decision has been taken and shows them
-		var currentValue = $("#quesSelect option:selected").val();
-		console.log("selected option");
-		console.log(currentValue);
+		$('select').change(function(){
+    	console.log($('option:selected',this).index());
+
+			//you know the index now, index=1 means Array[0], show the decision
+		});
 
 	})
 	/*$("#selectQuestion").click(function(){
