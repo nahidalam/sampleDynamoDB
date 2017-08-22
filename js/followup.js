@@ -6,7 +6,8 @@ $( document ).ready(function() {
 	//read from database and create based on questions whose decision has been taken already
 	var tableNameDecision = "Decision"
 	var tableNameFollowup = "Followup"
-	var optionValues= [[1,"first"],[2,"second"]];
+	//var optionValues= [[1,"first"],[2,"second"]];
+	var selectOptions = [];
 
   $("#populateMenu").click( function () {
 				//create param for scanning the Decision Table
@@ -38,25 +39,26 @@ $( document ).ready(function() {
 					console.log(dArray[i]);
 					//console.log(eArray[i]);
 				}
-        /*for (var i=0;i<optionValues.length;i++){
-            $('#quesSelect').append(jQuery("<option></option>").val(optionValues[i][0]).text(optionValues[i][1]))
-        }*/
 
 				var options = '';
 				for (var i=0;i<count;i++){
-            //$('#quesSelect').append(jQuery("<option></option>").val(qArray[i]))
-						options += '<option value="' + qArray[i]+ '">' + qArray[i] + '</option>';
+						selectOptions[i] = [];
+						selectOptions[i][0] = qArray[i];
+						options += '<option value="' + selectOptions[i][0]+ '">' + selectOptions[i][0] + '</option>';
 				}
 				$("#quesSelect").html(options);
 
 	    });
 
-	/*$("#select").click(function(){
+	$("#quesSelect").click(function(){
 		//what happens when question arrow drag&drop clicked?
 		//reads all questions whose decision has been taken and shows them
+		var currentValue = $("#quesSelect option:selected").val();
+		console.log("selected option");
+		console.log(currentValue);
 
 	})
-	$("#selectQuestion").click(function(){
+	/*$("#selectQuestion").click(function(){
 		//what happens when one of the questions is selected
 		//reads its decision from decision table and shows in a div
 		//also creates a space for followup writing
