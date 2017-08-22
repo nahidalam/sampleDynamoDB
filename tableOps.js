@@ -249,7 +249,6 @@ function readFromTable(params) {
       } else {
           console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
           result = JSON.stringify(data, null, 2);
-          //console.log ("got result");
           return resolve(result);
       }
     });
@@ -258,9 +257,19 @@ function readFromTable(params) {
 
 readFromTable(paramsReadDecision).then((results) => {
   console.log('You got your results');
-  console.log (result);
+  console.log (results);
+  console.log('Parsing JSON');
+  var obj = JSON.parse(results);
   //from the parameters I passed, I already know which table I am reading
   //so parse the items accordingly
+  console.log(obj.Item.question);
+  console.log(obj.Item.info.decision);
+  console.log(obj.Item.info.email);
+  /*results.Items.forEach(function(item) {
+            console.log(" -", item.question + ": "
+            + " ... " + item.info.decision
+            + " ... " + item.info.email);
+        });*/
 });
 
 
