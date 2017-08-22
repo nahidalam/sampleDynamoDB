@@ -265,11 +265,6 @@ readFromTable(paramsReadDecision).then((results) => {
   console.log(obj.Item.question);
   console.log(obj.Item.info.decision);
   console.log(obj.Item.info.email);
-  /*results.Items.forEach(function(item) {
-            console.log(" -", item.question + ": "
-            + " ... " + item.info.decision
-            + " ... " + item.info.email);
-        });*/
 });
 
 
@@ -286,23 +281,6 @@ function insertAtTable(params){
   });
 }
 
-/*function readFromTable (params){
-
-  docClient.get(params, function(err, data) {
-      if (err) {
-          console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
-          //return null;
-      } else {
-          console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-
-      }
-      result = JSON.stringify(data, null, 2);
-      console.log ("got result");
-      console.log (result);
-  });
-
-}*/
-
 function deleteFromTable (params){
   docClient.delete(params, function(err, data) {
     if (err) {
@@ -313,8 +291,7 @@ function deleteFromTable (params){
   });
 }
 
-
-function scanFromTable (params){
+/*function scanFromTable (params){
   docClient.scan(params, function(err, data) {
     if (err) {
         console.error("Unable to Scan the table. Error JSON:", JSON.stringify(err, null, 2));
@@ -322,4 +299,42 @@ function scanFromTable (params){
         console.log("Scan succeeded:", JSON.stringify(data, null, 2));
     }
   });
+}*/
+
+function scanFromTable(params) {
+  return new Promise((resolve, reject) => {
+    docClient.scan(params, function(err, data) {
+      if (err) {
+          console.error("Unable to Scan Table. Error JSON:", JSON.stringify(err, null, 2));
+          return reject(err);
+      } else {
+          console.log("Scan succeeded:", JSON.stringify(data, null, 2));
+          result = JSON.stringify(data, null, 2);
+          return resolve(result);
+      }
+    });
+  });
 }
+
+scanFromTable(paramsReadDecision).then((results) => {
+  console.log('You got Scan results');
+  console.log (results);
+  console.log('Parsing Scan DynamoDB JSON');
+  var obj = JSON.parse(results);
+  //from the parameters I passed, I already know which table I am reading
+  //so parse the items accordingly
+  var count = Object.keys(obj.Items).length;
+  var qArray = [];
+  var dArray = [];
+  var eArray = [];
+  for (i=0; i<count; i++){
+    qArray.push(obj.Items[i].question);
+    dArray.push(obj.Items[i].info.decision);
+    eArray.push(obj.Items[i].info.email);
+  }
+  for (i=0;i<qArray.length; i++){
+    console.log(qArray[i]);
+    console.log(dArray[i]);
+    console.log(eArray[i]);
+  }
+});
