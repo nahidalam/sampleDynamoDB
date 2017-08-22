@@ -218,6 +218,14 @@ io.sockets.on('connection', function (socket) {
       console.log('Read Decision from Database:' + message);
 
     });
+    socket.on('scanDecision', function (message) {
+      //called at view decision page
+      console.log('Received scan decision request:' + message);
+      paramsReadDecision = message;
+      scanFromTable(paramsReadDecision);
+      console.log('Read Decision from Database:' + message);
+
+    });
     socket.on('deleteDecision', function (message) {
 
     });
