@@ -7,6 +7,7 @@ $( document ).ready(function() {
 	var tableNameDecision = "Decision"
 	var tableNameFollowup = "Followup"
 	var selectOptions = [];
+	var decisionArray = [];
 
   $("#populateMenu").click( function () {
 				//create param for scanning the Decision Table
@@ -26,18 +27,19 @@ $( document ).ready(function() {
 				//so parse the items accordingly
 				var count = Object.keys(obj.Items).length;
 				var qArray = [];
-				var dArray = [];
+				//var dArray = [];
 				//var eArray = [];
 				for (i=0; i<count; i++){
 					qArray.push(obj.Items[i].question);
-					dArray.push(obj.Items[i].info.decision);
+					//dArray.push(obj.Items[i].info.decision);
+					decisionArray.push(obj.Items[i].info.decision);
 					//eArray.push(obj.Items[i].info.email);
 				}
-				for (i=0;i<qArray.length; i++){
+				/*for (i=0;i<qArray.length; i++){
 					console.log(qArray[i]);
 					console.log(dArray[i]);
 					//console.log(eArray[i]);
-				}
+				}*/
 
 				var options = '';
 				for (var i=0;i<=count;i++){
@@ -57,20 +59,18 @@ $( document ).ready(function() {
 	$("#quesSelect").click(function(){
 		$('select').change(function(){
     	console.log($('option:selected',this).index());
-
+			var index = $('option:selected',this).index();
 			//you know the index now, index=1 means Array[0], show the decision
+			console.log(decisionArray[index-1]);
+			$('.decision').html(decisionArray[index-1]);
+
+			//create a div for writing followups
 		});
 
 	})
-	/*$("#selectQuestion").click(function(){
-		//what happens when one of the questions is selected
-		//reads its decision from decision table and shows in a div
-		//also creates a space for followup writing
-
-	})
 
 
-	$("#btnFollowupSubmit").click(function(){
+	/*$("#btnFollowupSubmit").click(function(){
 		//gather all the data for the Followup Table, create a JSON and send it
 		socket.emit('insertFollowup',tableJSON);
 		console.log ("sent database insert request at Followup Table" + index);
