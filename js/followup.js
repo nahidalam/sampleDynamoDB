@@ -8,6 +8,10 @@ $( document ).ready(function() {
 	var tableNameFollowup = "Followup"
 	var selectOptions = [];
 	var decisionArray = [];
+	var qArray = [];
+
+	$( '.followupText' ).hide();
+	$( '.followupSteps' ).hide();
 
   $("#populateMenu").click( function () {
 				//create param for scanning the Decision Table
@@ -26,20 +30,11 @@ $( document ).ready(function() {
 				//from the parameters I passed, I already know which table I am reading
 				//so parse the items accordingly
 				var count = Object.keys(obj.Items).length;
-				var qArray = [];
-				//var dArray = [];
-				//var eArray = [];
+				//var qArray = [];
 				for (i=0; i<count; i++){
 					qArray.push(obj.Items[i].question);
-					//dArray.push(obj.Items[i].info.decision);
 					decisionArray.push(obj.Items[i].info.decision);
-					//eArray.push(obj.Items[i].info.email);
 				}
-				/*for (i=0;i<qArray.length; i++){
-					console.log(qArray[i]);
-					console.log(dArray[i]);
-					//console.log(eArray[i]);
-				}*/
 
 				var options = '';
 				for (var i=0;i<=count;i++){
@@ -58,16 +53,26 @@ $( document ).ready(function() {
 
 	$("#quesSelect").click(function(){
 		$('select').change(function(){
-    	console.log($('option:selected',this).index());
 			var index = $('option:selected',this).index();
-			//you know the index now, index=1 means Array[0], show the decision
-			console.log(decisionArray[index-1]);
+			//you know the index now, show the decision
 			$('.decision').html(decisionArray[index-1]);
 
-			//create a div for writing followups
+			//create a div for writing followups and
+			$( '.followupText' ).show();
+			//if there was a followup list before, show them
+
+			//read the followup table of current question qArray[index-1]
+			//if no followup, ask to create followup
+			$( '.followupSteps' ).show();
+			//show a textbox where u can enter followup.
+			//once ENTER press, insert in followup table
+			//and show that followup entry below beside a checkbox
+			//each line of the followup is a text with checkbox when you start typing
 		});
 
 	})
+
+	//checkbox click action - gray it out
 
 
 	/*$("#btnFollowupSubmit").click(function(){
