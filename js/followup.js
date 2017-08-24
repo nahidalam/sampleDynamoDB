@@ -9,6 +9,8 @@ $( document ).ready(function() {
 	var selectOptions = [];
 	var decisionArray = [];
 	var qArray = [];
+	var fArray = [];
+	var doneStatus = [];
 
 	$( '.followupText' ).hide();
 	$( '.followupSteps' ).hide();
@@ -73,9 +75,10 @@ $( document ).ready(function() {
 			$('#txtFollowup').on('keydown',function(e){
   			if(e.which == '13'){
 					//create params for inserting at Followup Table
-					var qFollowup = qArray[index-1];
+					var qFolfowup = qArray[index-1];
 					var dFollowup = decisionArray[index-1];
 					var fFollowup = $("#txtFollowup").val();
+					var doneFollowup = 0;
 
 					var paramsInsertFollowup = {
 					    TableName:tableNameFollowup,
@@ -83,23 +86,49 @@ $( document ).ready(function() {
 					        "question": qFollowup,
 					        "info":{
 					            "decision": dFollowup,
-					            "followup": fFollowup
+					            "followup": fFollowup,
+											"done": doneFollowup
 					        }
 					    }
 					};
     			//insert in the followup table, send socket message to server
 					socket.emit('insertFollowup',paramsInsertFollowup);
 
-					//show the followup entry below beside a checkbox
+					//show the followup entry below beside a checkbox - scan followupTable
+					var paramsScanFollowup = {
+					    TableName:tableNameFollowup
+					};
+
+					socket.emit('scanFollowup', paramsScanFollowup);
 
   			}
 			});
-			//and show that followup entry below beside a checkbox
+			//scan followup table either way
+			socket.emit('scanFollowup', paramsScanFollowup);
+			//retrieve the followup entry
+			socket.on('scanFollowupResults', function (results) {
+				var objFollowup = JSON.parse(results);
+				var count = Object.keys(objFollowup.Items).length;
+				if(count >0){
+					for (i=0; i<count; i++){
+						fArray.push(objFollowup.Items[i].info.followup);
+						doneStatus.push(objFollowup.Items[i].info.done);
+					}
+					//and show that followup entry below beside a checkbox
+
+					for (i=0; i<count; i++){
+						//unhide one checkbox and one label in each iteration
+						//based on doneStatus show
+						$("#labelFollowup").text(fArray[i]);
+					}
+				}
+			});
 		});
 
 	})
 
-	//checkbox click action - gray it out
+	//checkbox click action
+	//gray it out, update the done column of followup table
 
 
 	/*$("#btnFollowupSubmit").click(function(){

@@ -29,3 +29,8 @@ img{
     margin-top: -60px;
 		margin-left: 20px;
 }
+
+.followupSteps {
+	white-space: nowrap;
+	display:inline
+}

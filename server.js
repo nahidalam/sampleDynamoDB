@@ -223,11 +223,6 @@ io.sockets.on('connection', function (socket) {
       console.log('Created Decision Entry in Database:' + message);
     });
     socket.on('readDecision', function (message) {
-      //called at view decision page
-      console.log('Received read decision request:' + message);
-      paramsReadDecision = message;
-      readFromTable(paramsReadDecision);
-      console.log('Read Decision from Database:' + message);
 
     });
     socket.on('scanDecision', function (message) {
@@ -235,7 +230,7 @@ io.sockets.on('connection', function (socket) {
       console.log('Received scan decision table req:' + message);
 
       scanFromTable(message).then((results) => {
-        console.log('You got Scan results');
+        console.log('Scan Decision Table Results');
         console.log (results);
         socket.emit('scanDecisionResults', results);
         console.log('Scan Done from Decision Table:' + results);
@@ -253,12 +248,18 @@ io.sockets.on('connection', function (socket) {
 
     });
     socket.on('readFollowup', function (message) {
-      //called at view decision page under status of the followup
-      console.log('Received read followup request:' + message);
-      paramsReadFollowup = message;
-      readFromTable(paramsReadFollowup);
-      console.log('Read Followup from Database:' + message);
 
+    });
+    socket.on('scanFollowup', function (message) {
+      //called from followup create page
+      console.log('Received scan Followup table req:' + message);
+
+      scanFromTable(message).then((results) => {
+        console.log('Scan Followup Table Results');
+        console.log (results);
+        socket.emit('scanFollowupResults', results);
+        console.log('Scan Done from Followup Table:' + results);
+      });
     });
     socket.on('deleteFollowup', function (message) {
 

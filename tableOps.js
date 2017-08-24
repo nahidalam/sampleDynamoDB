@@ -50,6 +50,7 @@ var emailDecision = "nahid@gmail.com";
 var quesFollowup = "What do we want from life?";
 var decFollowup = "Happiness";
 var folFollowup = "task1, date; task2, date"; //followup task with due date
+var doneFollowup = 0;
 
 
 //var followupDecision = "task1,task2";  //comma seperated list of string
@@ -199,7 +200,8 @@ var paramsInsertFollowup = {
         "question": quesFollowup,
         "info":{
             "decision": decFollowup,  //one of the answers
-            "followup": folFollowup   //followup task with due dates
+            "followup": folFollowup,   //followup task with due dates
+            "done": doneFollowup
         }
     }
 };
