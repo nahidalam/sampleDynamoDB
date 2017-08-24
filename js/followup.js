@@ -61,13 +61,8 @@ $( document ).ready(function() {
 		//var count1 = Object.keys(objFollowup.Item).length;
 		//console.log("now the count is");
 		//console.log(count1);
-		console.log(objFollowup.Item.info.followup);
-		followupResultString = objFollowup.Item.info.followup;
-		console.log(followupResultString);
-
-		if (!followupResultString) {
-  		console.log("empty");
-			//result length 0 - allow ppl to create followup
+		if(results =="{}"){
+			console.log("empty result");
 			$(".followupNotFound").show();
 			//show the textbox to write followups
 			$("#txtFollowup").show();
@@ -85,6 +80,11 @@ $( document ).ready(function() {
 		}
 		else {
 			console.log("not empty");
+			$(".followupNotFound").hide();
+			//$("#txtFollowup").show();
+			console.log(objFollowup.Item.info.followup);
+			followupResultString = objFollowup.Item.info.followup;
+			console.log(followupResultString);
 			//$( '.followupSteps' ).show();
 			//show that followup entry below beside a checkbox
 			var howManyFollowups = (followupResultString.match(/;/g) || []).length + 1;
@@ -93,7 +93,7 @@ $( document ).ready(function() {
 			console.log(fields[0]);
 
 			$(function(){
-
+				$("#followupTable tr").remove();
   			for(var index=0; index<howManyFollowups; index++){
     			let div = '<div class ="followupSteps">'+
   				'<input type="checkbox" id="checkboxFollowup'+index+'">'+
@@ -117,6 +117,8 @@ $( document ).ready(function() {
 
 	$("#quesSelect").click(function(){
 		$('select').change(function(){
+			//hide the followup show table
+			$("#followupTable tr").remove();
 			index = $('option:selected',this).index();
 			//you know the index now, show the decision
 			$('.decision').html(decisionArray[index-1]);
