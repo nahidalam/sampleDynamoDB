@@ -22,7 +22,7 @@ $( document ).ready(function() {
 
 	$("#btnViewFollowup").hide();
 	$( '.followupText' ).hide();
-	$( '.followupSteps' ).hide();
+	//$( '.followupSteps' ).hide();
 	$( '.followupNotFound' ).hide();
 	$("#txtFollowup").hide();
 	$("#btnInsertFollowup").hide();
@@ -85,9 +85,25 @@ $( document ).ready(function() {
 		}
 		else {
 			console.log("not empty");
+			//$( '.followupSteps' ).show();
 			//show that followup entry below beside a checkbox
+			var howManyFollowups = (followupResultString.match(/;/g) || []).length + 1;
+			console.log(howManyFollowups);
+			var fields = followupResultString.split(';');
+			console.log(fields[0]);
+
+			$(function(){
+
+  			for(var index=0; index<howManyFollowups; index++){
+    			let div = '<div class ="followupSteps">'+
+  				'<input type="checkbox" id="checkboxFollowup'+index+'">'+
+  				'<label for="checkboxFollowup'+index+'" id="labelFollowup'+index+'">'+fields[index]+'</label>'+
+  				'</div>';
+      		$('table').append('<tr> <td>'+div+' </td> </tr>')
+     		}
+			});
 		}
-		});
+	});
 
   $("#populateMenu").click( function () {
 				//create param for scanning the Decision Table
@@ -123,7 +139,7 @@ $( document ).ready(function() {
 		};
 
 		socket.emit('readFollowup', paramsReadFollowup);
-		console.log("sent readFollowup"); 
+		console.log("sent readFollowup");
 	})
 
 
