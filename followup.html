@@ -14,13 +14,18 @@
     </head>
     <body>
       <button id="populateMenu">Question</button>
+      <br>
       <select id="quesSelect"></select>
       <div class ="decision"></div>
-      <div class ="followupText">Add Followups</div>
-      <input type = "text" placeholder="Enter Followup, Date" id = "txtFollowup">
+      <button id="btnViewFollowup">View Followup Steps</button>
+      <div class ="followupText">Followup Steps Created</div>
       <div class ="followupSteps">
         <input type="checkbox" id="checkboxFollowup">
         <label for="checkboxFollowup" id="labelFollowup"></label>
       </div>
+      <div class ="followupNotFound">No Followup Found. Add Followup Steps with Due Date</div>
+      <input type = "text" placeholder="Enter Followup, Date" id = "txtFollowup"> <br>
+      <button id="btnInsertFollowup">Submit Followups</button>
+
     </body>
 </html>

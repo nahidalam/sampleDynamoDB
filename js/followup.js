@@ -10,11 +10,84 @@ $( document ).ready(function() {
 	var decisionArray = [];
 	var qArray = [];
 	var fArray = [];
+	var ftxtArray = [];
 	var doneStatus = [];
+	var index;
+	var qFollfowup;
+	var dFollowup;
+	var fFollowup;
+	var doneFollowup;
+	var count;
+	var followupResultString;
 
+	$("#btnViewFollowup").hide();
 	$( '.followupText' ).hide();
 	$( '.followupSteps' ).hide();
+	$( '.followupNotFound' ).hide();
 	$("#txtFollowup").hide();
+	$("#btnInsertFollowup").hide();
+
+
+	socket.on('scanDecisionResults', function (results) {
+		console.log("captured scan decision results");
+		var obj = JSON.parse(results);
+		var len = Object.keys(obj.Items).length;
+		console.log("len is");
+		console.log(len);
+		for (i=0; i<len; i++){
+			qArray.push(obj.Items[i].question);
+			decisionArray.push(obj.Items[i].info.decision);
+		}
+
+		var options = '';
+		for (var i=0;i<=len;i++){
+				selectOptions[i] = [];
+		}
+		selectOptions[0][0] = "Selct a Question";
+		for (var j=1;j<=len;j++){
+				selectOptions[j][0] = qArray[j-1];
+			}
+		for (var i=0;i<=len;i++){
+				options += '<option value="' + selectOptions[i][0]+ '">' + selectOptions[i][0] + '</option>';
+		}
+		$("#quesSelect").html(options);
+	});
+
+
+	socket.on('readFollowupResults', function (results) {
+		console.log("captured read followup result");
+		console.log(results);
+		var objFollowup = JSON.parse(results);
+		//var count1 = Object.keys(objFollowup.Item).length;
+		//console.log("now the count is");
+		//console.log(count1);
+		console.log(objFollowup.Item.info.followup);
+		followupResultString = objFollowup.Item.info.followup;
+		console.log(followupResultString);
+
+		if (!followupResultString) {
+  		console.log("empty");
+			//result length 0 - allow ppl to create followup
+			$(".followupNotFound").show();
+			//show the textbox to write followups
+			$("#txtFollowup").show();
+			//once ENTER press, save followups in an array
+			$('#txtFollowup').on('keydown',function(e){
+				if(e.which == '13'){
+					$("#btnInsertFollowup").show();
+					//create an array of followups by reading textfield content
+					var fdata = $("#txtFollowup").val();
+					console.log("pushing follouwp");
+					console.log(fdata);
+					ftxtArray.push(fdata);
+				}
+			});
+		}
+		else {
+			console.log("not empty");
+			//show that followup entry below beside a checkbox
+		}
+		});
 
   $("#populateMenu").click( function () {
 				//create param for scanning the Decision Table
@@ -23,119 +96,66 @@ $( document ).ready(function() {
 				};
 				//send socket msg to server
 				socket.emit('scanDecision',paramsScanDecision);
-			})
+	 })
 
-			socket.on('scanDecisionResults', function (results) {
-				//receives the entire object from socket
-				//parse JSON to only show the necessary items in this case
-
-				var obj = JSON.parse(results);
-				//from the parameters I passed, I already know which table I am reading
-				//so parse the items accordingly
-				var count = Object.keys(obj.Items).length;
-				//var qArray = [];
-				for (i=0; i<count; i++){
-					qArray.push(obj.Items[i].question);
-					decisionArray.push(obj.Items[i].info.decision);
-				}
-
-				var options = '';
-				for (var i=0;i<=count;i++){
-						selectOptions[i] = [];
-				}
-				selectOptions[0][0] = "Selct a Question";
-				for (var j=1;j<=count;j++){
-						selectOptions[j][0] = qArray[j-1];
-					}
-				for (var i=0;i<=count;i++){
-						options += '<option value="' + selectOptions[i][0]+ '">' + selectOptions[i][0] + '</option>';
-				}
-				$("#quesSelect").html(options);
-
-	    });
 
 	$("#quesSelect").click(function(){
 		$('select').change(function(){
-			var index = $('option:selected',this).index();
+			index = $('option:selected',this).index();
 			//you know the index now, show the decision
 			$('.decision').html(decisionArray[index-1]);
 
-			//show a text message
-			$( '.followupText' ).show();
+			//show the clickable button to view followups
+			$("#btnViewFollowup").show();
 
-			//show the textbox to write followups
-			$("#txtFollowup").show();
-
-			//if there was a followup list before, show them
-			$( '.followupSteps' ).show();
-			//read the followup table of current question qArray[index-1]
-			//if no followup, ask to create followup
-
-			//once ENTER press, insert in followup table
-			$('#txtFollowup').on('keydown',function(e){
-  			if(e.which == '13'){
-					//create params for inserting at Followup Table
-					var qFolfowup = qArray[index-1];
-					var dFollowup = decisionArray[index-1];
-					var fFollowup = $("#txtFollowup").val();
-					var doneFollowup = 0;
-
-					var paramsInsertFollowup = {
-					    TableName:tableNameFollowup,
-					    Item:{
-					        "question": qFollowup,
-					        "info":{
-					            "decision": dFollowup,
-					            "followup": fFollowup,
-											"done": doneFollowup
-					        }
-					    }
-					};
-    			//insert in the followup table, send socket message to server
-					socket.emit('insertFollowup',paramsInsertFollowup);
-
-					//show the followup entry below beside a checkbox - scan followupTable
-					var paramsScanFollowup = {
-					    TableName:tableNameFollowup
-					};
-
-					socket.emit('scanFollowup', paramsScanFollowup);
-
-  			}
-			});
-			//scan followup table either way
-			socket.emit('scanFollowup', paramsScanFollowup);
-			//retrieve the followup entry
-			socket.on('scanFollowupResults', function (results) {
-				var objFollowup = JSON.parse(results);
-				var count = Object.keys(objFollowup.Items).length;
-				if(count >0){
-					for (i=0; i<count; i++){
-						fArray.push(objFollowup.Items[i].info.followup);
-						doneStatus.push(objFollowup.Items[i].info.done);
-					}
-					//and show that followup entry below beside a checkbox
-
-					for (i=0; i<count; i++){
-						//unhide one checkbox and one label in each iteration
-						//based on doneStatus show
-						$("#labelFollowup").text(fArray[i]);
-					}
-				}
-			});
 		});
 
 	})
 
+	$("#btnViewFollowup").click(function(){
+		console.log("view followup button clicked");
+		//read followup table
+		var paramsReadFollowup = {
+		    TableName: tableNameFollowup,
+		    Key:{
+		      "question": qArray[index-1]
+		    }
+		};
+
+		socket.emit('readFollowup', paramsReadFollowup);
+		console.log("sent readFollowup"); 
+	})
+
+
+	$("#btnInsertFollowup").click(function(){
+
+		//create params for inserting at Followup Table
+		qFollfowup = qArray[index-1];
+		dFollowup = decisionArray[index-1];
+		fFollowup = ftxtArray.join(';');
+		doneFollowup = 0;
+
+		console.log("followup string");
+		console.log(fFollowup);
+
+		var paramsInsertFollowup = {
+				TableName:tableNameFollowup,
+				Item:{
+						"question": qFollfowup,
+						"info":{
+								"decision": dFollowup,
+								"followup": fFollowup,
+								"done": doneFollowup
+						}
+				}
+		};
+		//insert in the followup table, send socket message to server
+		//console.log("haven't inserted yet. will do if everything ok");
+		socket.emit('insertFollowup',paramsInsertFollowup);
+
+	})
 	//checkbox click action
 	//gray it out, update the done column of followup table
 
-
-	/*$("#btnFollowupSubmit").click(function(){
-		//gather all the data for the Followup Table, create a JSON and send it
-		socket.emit('insertFollowup',tableJSON);
-		console.log ("sent database insert request at Followup Table" + index);
-
-	}) */
 
 });

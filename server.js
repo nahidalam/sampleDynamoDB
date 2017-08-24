@@ -248,10 +248,16 @@ io.sockets.on('connection', function (socket) {
 
     });
     socket.on('readFollowup', function (message) {
+      console.log('Received read Followup table req:' + message);
+      readFromTable(message).then((results) => {
+        console.log('Read Followup Table Results');
+        console.log (results);
+        socket.emit('readFollowupResults', results);
+        console.log('Read Done from Followup Table:' + results);
+      });
 
     });
     socket.on('scanFollowup', function (message) {
-      //called from followup create page
       console.log('Received scan Followup table req:' + message);
 
       scanFromTable(message).then((results) => {
