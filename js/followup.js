@@ -12,6 +12,7 @@ $( document ).ready(function() {
 
 	$( '.followupText' ).hide();
 	$( '.followupSteps' ).hide();
+	$("#txtFollowup").hide();
 
   $("#populateMenu").click( function () {
 				//create param for scanning the Decision Table
@@ -57,17 +58,43 @@ $( document ).ready(function() {
 			//you know the index now, show the decision
 			$('.decision').html(decisionArray[index-1]);
 
-			//create a div for writing followups and
+			//show a text message
 			$( '.followupText' ).show();
-			//if there was a followup list before, show them
 
+			//show the textbox to write followups
+			$("#txtFollowup").show();
+
+			//if there was a followup list before, show them
+			$( '.followupSteps' ).show();
 			//read the followup table of current question qArray[index-1]
 			//if no followup, ask to create followup
-			$( '.followupSteps' ).show();
-			//show a textbox where u can enter followup.
+
 			//once ENTER press, insert in followup table
+			$('#txtFollowup').on('keydown',function(e){
+  			if(e.which == '13'){
+					//create params for inserting at Followup Table
+					var qFollowup = qArray[index-1];
+					var dFollowup = decisionArray[index-1];
+					var fFollowup = $("#txtFollowup").val();
+
+					var paramsInsertFollowup = {
+					    TableName:tableNameFollowup,
+					    Item:{
+					        "question": qFollowup,
+					        "info":{
+					            "decision": dFollowup,
+					            "followup": fFollowup
+					        }
+					    }
+					};
+    			//insert in the followup table, send socket message to server
+					socket.emit('insertFollowup',paramsInsertFollowup);
+
+					//show the followup entry below beside a checkbox
+
+  			}
+			});
 			//and show that followup entry below beside a checkbox
-			//each line of the followup is a text with checkbox when you start typing
 		});
 
 	})

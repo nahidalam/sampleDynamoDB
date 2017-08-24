@@ -248,10 +248,8 @@ io.sockets.on('connection', function (socket) {
     socket.on('insertFollowup', function (message) {
       //called at create followup page
       console.log('Received insert followup request:' + message);
-      paramsInsertFollowup = message;
-      insertAtTable(paramsInsertFollowup);
+      insertAtTable(message);
       console.log('Created Followup Entry in Database:' + message);
-
 
     });
     socket.on('readFollowup', function (message) {
