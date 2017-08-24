@@ -22,7 +22,6 @@ $( document ).ready(function() {
 
 	$("#btnViewFollowup").hide();
 	$( '.followupText' ).hide();
-	//$( '.followupSteps' ).hide();
 	$( '.followupNotFound' ).hide();
 	$("#txtFollowup").hide();
 	$("#btnInsertFollowup").hide();
@@ -58,9 +57,6 @@ $( document ).ready(function() {
 		console.log("captured read followup result");
 		console.log(results);
 		var objFollowup = JSON.parse(results);
-		//var count1 = Object.keys(objFollowup.Item).length;
-		//console.log("now the count is");
-		//console.log(count1);
 		if(results =="{}"){
 			console.log("empty result");
 			$(".followupNotFound").show();
@@ -85,7 +81,6 @@ $( document ).ready(function() {
 			console.log(objFollowup.Item.info.followup);
 			followupResultString = objFollowup.Item.info.followup;
 			console.log(followupResultString);
-			//$( '.followupSteps' ).show();
 			//show that followup entry below beside a checkbox
 			var howManyFollowups = (followupResultString.match(/;/g) || []).length + 1;
 			console.log(howManyFollowups);
@@ -168,12 +163,10 @@ $( document ).ready(function() {
 				}
 		};
 		//insert in the followup table, send socket message to server
-		//console.log("haven't inserted yet. will do if everything ok");
 		socket.emit('insertFollowup',paramsInsertFollowup);
 
 	})
 	//checkbox click action
 	//gray it out, update the done column of followup table
-
 
 });
