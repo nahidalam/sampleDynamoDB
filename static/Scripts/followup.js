@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
+	//var socket = io.connect('http://www.ciscochill.com:80');
 	var socket = io.connect('http://localhost:8080');
-	//var socket = io();
 
 	//read from database and create based on questions whose decision has been taken already
 	var tableNameDecision = "Decision"
@@ -108,6 +108,14 @@ $( document ).ready(function() {
 				//send socket msg to server
 				socket.emit('scanDecision',paramsScanDecision);
 	 })
+  /*$("#populateMenu").click( function () {
+				//create param for scanning the Decision Table
+				var paramsScanDecision = {
+				    TableName:tableNameDecision
+				};
+				//send socket msg to server
+				socket.emit('scanDecision',paramsScanDecision);
+	 })*/
 
 
 	$("#quesSelect").click(function(){
