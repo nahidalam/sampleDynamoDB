@@ -12,3 +12,12 @@ body{
 	width: 100%;
 	height: calc(100% - 100px);
 }
+
+table {
+    border: 1px solid black;
+		width: 80%;
+		align: "center"; 
+}
+th, td {
+    border: 1px solid black;
+}
