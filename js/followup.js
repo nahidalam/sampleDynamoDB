@@ -100,7 +100,7 @@ $( document ).ready(function() {
 		}
 	});
 
-  $("#populateMenu").click( function () {
+  $( function () {
 				//create param for scanning the Decision Table
 				var paramsScanDecision = {
 				    TableName:tableNameDecision
@@ -108,6 +108,14 @@ $( document ).ready(function() {
 				//send socket msg to server
 				socket.emit('scanDecision',paramsScanDecision);
 	 })
+  /*$("#populateMenu").click( function () {
+				//create param for scanning the Decision Table
+				var paramsScanDecision = {
+				    TableName:tableNameDecision
+				};
+				//send socket msg to server
+				socket.emit('scanDecision',paramsScanDecision);
+	 })*/
 
 
 	$("#quesSelect").click(function(){
