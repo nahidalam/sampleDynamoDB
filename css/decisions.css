@@ -1,24 +1,14 @@
 body{
-	background-color: black;
+	background-color: white;
+	height: 100%;
+	width: 100%;
 	margin: 0px;
 	text-align: center;
 	overflow-x: hidden;
 	overflow-y: hidden;
 }
 
-img{
-	height: 100%;
-	display: none;
-}
-
-
-
-#alarm{
-	display: none;
+#content{
 	width: 100%;
-	height: 100%;
-	background-color:red;
-	position: absolute;
-	top: 0px;
-	left: 0px;
+	height: calc(100% - 100px);
 }
