@@ -197,6 +197,9 @@ io.sockets.on('connection', function (socket) {
 
     socket.on('insertQuestion', function (message) {
 
+      insertAtTable(message);
+      console.log('Inserted question at Database:' + message);
+
     });
     socket.on('readQuestion', function (message) {
 

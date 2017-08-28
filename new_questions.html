@@ -1,12 +1,13 @@
 <!DOCTYPE HTML>
- 
+
 <html>
 <head>
 
-<link rel ="stylesheet"  type ="text/css" href ="static/CSS/style.css">
-<script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script>
-<script  type="text/javascript" src="static/Scripts/script.js"></script>
+<link rel ="stylesheet"  type ="text/css" href ="css/style.css">
+<script src="js/jquery-1.11.0.min.js"></script>
+<script  type="text/javascript" src="js/script.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.94.0.min.js"></script>
 <head>
 <body>
 
@@ -14,18 +15,18 @@
 <!---------- Top Container ----------->
 <div class = "topContainer" >
     <div class ="logoContainer" >
-    <img class = "barImg" src="static/Images/decision_tracking_logo.png" >
+    <img class = "barImg" src="Images/decision_tracking_logo.png" >
     </div>
 	<div class = "menuContainer" >
 
-	     
+
   		<button  id= "view_question" class = "menuButtonClass" >View Questions</button>
   		<button style = "border-bottom:3px solid blue" id = "new_question" class = "menuButtonClass">Create New Question</button>
   		<button id = "view_decision" class = "menuButtonClass">View Decisions</button>
   		<a style= "float:right;margin-right:20px;" href='/logout'>Logout</a>
   	</div>
   	<div class ="sidebarContent" >
-   	</div>    	
+   	</div>
 </div>
 
 <!----------Main Body Container ----------->
@@ -41,25 +42,18 @@
 	<div id = "questionsubDiv"class = "questionsubContainer" >
 		<form  id ="questionformtopID" class =  "questionformtopContainer" onsubmit="/new_question.html" > <!- change your submit action here->
    			<p style="display:block;padding-top:5px">Enter Question:</p>
-  			<textarea style="width:80%;height:50%;margin-bottom:5px;" placeholder="Ex: should we contact XYZ company for next CHILL lab?" name="text" rows="14" cols="10" wrap="soft"></textarea> <br>
+  			<textarea id = "txtQuestion" style="width:80%;height:50%;margin-bottom:5px;" placeholder="Ex: what do you want from life?" name="text" rows="14" cols="10" wrap="soft"></textarea> <br>
   			<p style="display:block;padding-top:5px">Question Type:</p>
   			<input style="margin-bottom:10px;" type="radio" name="questionType" value="choice" checked> Yes/No<br>
   			<input style="margin-bottom:10px;" type="radio" name="questionType" value="textinput"> Text<br>
-  			<p style="display:block;padding-top:5px">Add decision makers email IDs&nbsp&nbsp</p>	
-  			<textarea style="width:50%;height:30%;margin-bottom:20px;" placeholder= "Ex: allpollar@cisco.com, jusmulle@cisco.com, ..." name="text" rows="14" cols="10" wrap="soft"></textarea> <br>  
-  		    <button type="submit" form="questionformtopID" value="Submit">Submit</button>
+  			<p style="display:block;padding-top:5px">Add decision makers email IDs&nbsp&nbsp</p>
+  			<textarea id = "txtParticipantEmail" style="width:50%;height:30%;margin-bottom:20px;" placeholder= "Ex: allpollar@cisco.com, jusmulle@cisco.com, ..." name="text" rows="14" cols="10" wrap="soft"></textarea> <br>
+  		  <button id = "btnInsertQues" type="submit" form="questionformtopID" value="Submit">Submit</button>
 	    </form>
-  	</div> 
+  	</div>
 </div>
 	</div>
-	
+
 </div>
 </body>
 </html>
-
-
-
-	
-
-
-	
