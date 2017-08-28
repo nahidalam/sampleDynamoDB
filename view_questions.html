@@ -1,1 +1,75 @@
-<p>Contents of the View Questions will be here</p>
+<!DOCTYPE HTML>
+ 
+<html>
+<head>
+<link rel ="stylesheet"  type ="text/css" href ="static/CSS/style.css">
+<script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+
+<script  type="text/javascript" src="static/Scripts/script.js"></script>
+</head>
+<body>
+
+
+<!---------- Top Container ----------->
+<div class = "topContainer" >
+    <div class ="logoContainer" >
+    <img class = "barImg" src="static/Images/decision_tracking_logo.png" >
+    </div>
+	<div class = "menuContainer" >
+
+	     
+  		<button style = "border-bottom:3px solid blue" id = "view_question" class = "menuButtonClass" >View Questions</button>
+  		<button id = "new_question" class = "menuButtonClass">Create New Question</button>
+  		<button id = "view_decision" class = "menuButtonClass">View Decisions</button>
+  		<a style= "float:right;margin-right:20px;" href='/logout'>Logout</a>
+  	</div>
+  	<div class ="sidebarContent" >
+   	</div>    	
+</div>
+
+<!----------Main Body Container ----------->
+<div id = "mainBody" class = "mainbodyContainer" >
+	<div id= "contextBar" class = "contextbarContainer">
+	     <h1 id= "contextheader" >Open Questions</h1>
+	</div>
+	<div id= "infoBar" class = "infobarContainer">
+	     <h1 id = "infoheader" >Click on the question below to respond</h1>
+	</div>
+	<div id ="mainbodyContent" class = "mainbodycontentContainer">
+	<div id = "questionDiv" class ="questionContainer" >
+	<div id = "questionsubDiv"class = "questionsubContainer" >
+		<form  id ="questionformtopID" class =  "questionformtopContainer" onsubmit="/new_question.html" > <!- change your submit action here->
+   			<p style="display:inline-block;">Select a question to view:</p>
+		    <select style="display:inline-block;" name="questions">
+  			<option value="q1">Question1</option>
+ 			<option value="q2">Question2</option>
+  			<option value="q3">Question3</option>
+  			<option value="q4">Question4</option>
+			</select>
+		    <div style="display:none" id = "Yes_NoDiv" >	
+
+  				<input style="margin-bottom:10px;" type="radio" name="questionType" value="choice" checked> Yes<br>
+  				<input style="margin-bottom:10px;" type="radio" name="questionType" value="textinput"> No<br>
+  				 
+  				</div>
+  		       <div style="display:none" id = "textDiv" >		
+  				<p style="display:none;padding-top:5px">Text Input&nbsp&nbsp</p>	
+  				<textarea style="width:50%;height:30%;margin-bottom:20px;" placeholder= "..." name="text" rows="14" cols="10" wrap="soft"></textarea> <br>
+  		  
+	    </div>
+	    <div style="display:none" id="buttonDiv" >
+	     <button type="submit" form="questionformtopID" value="Submit">Submit</button>
+	     </div>
+  		</form>
+  	</div> 
+</div>
+	</div>
+	
+</div>
+
+</body>
+</html>
+
+
+	

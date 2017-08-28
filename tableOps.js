@@ -237,7 +237,7 @@ var result;
 //console.log ("got global result");
 //console.log (result);
 
-//insertAtTable(paramsInsertDecision);
+insertAtTable(paramsInsertDecision);
 //readFromTable (paramsReadDecision);
 //deleteFromTable (paramsDeleteDecision);
 //scanFromTable (paramsScanDecision);
