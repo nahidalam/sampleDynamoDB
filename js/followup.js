@@ -22,6 +22,7 @@ $( document ).ready(function() {
 	$("#btnViewFollowup").hide();
 	$( '.followupText' ).hide();
 	$( '.followupNotFound' ).hide();
+	//$( '.decision').hide();
 	$("#txtFollowup").hide();
 	$("#btnInsertFollowup").hide();
 
@@ -129,6 +130,7 @@ $( document ).ready(function() {
 		$('select').change(function(){
 			//hide the followup show table
 			$("#followupTable tr").remove();
+			//$( '.decision' ).show();
 			index = $('option:selected',this).index();
 			//you know the index now, show the decision
 			$('.decision').html(decisionArray[index-1]);

@@ -29,3 +29,23 @@ img{
     margin-top: -60px;
 		margin-left: 20px;
 }
+
+.decision{
+	font-size:10pt;
+	font-family:"helvetica";
+}
+
+.followupSteps{
+	font-size:10pt;
+	margin: auto;
+	font-family:"helvetica";
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table.center {
+    margin-left:auto;
+    margin-right:auto;
+  }
