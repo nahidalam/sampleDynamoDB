@@ -97,7 +97,7 @@ socket.on('scanQuestionResults', function (results) {
 });
 
 $( function () {
-      //create param for scanning the Decision Table
+      //create param for scanning the Question Table
       console.log("msg after loading");
       var paramsScanQuestion = {
           TableName:tableNameQuestion
