@@ -30,10 +30,10 @@ var tableNameFollowup = "Followup"
 var emailLogin = "shapla@gmail.com";
 var pass = "1234";
 
-var emailQuestion = "shapla@gmail.com";
-var quesQuestion = "What do we want from life?";
+var emailQuestion = "nahalam@cisco.com";
+var quesQuestion = "What do you want from life?";
 var ansTypeQuestion = "text";
-var participantEmailQuestion = "shapla@gmail.com, abc@gmail.com";  //comma seperated string
+var participantEmailQuestion = "abc@gmail.com";  //comma seperated string
 
 var emailAnswer = "shapla@gmail.com";  //person replying, only one emailAnswer
 var quesAnswer = "What do we want from life?";
@@ -117,7 +117,7 @@ var paramsDeleteQuestion = {
 
 
 //params for scanning the Question table
-var paramsDeleteQuestion = {
+var paramsScanQuestion = {
     TableName:tableNameQuestion
 };
 
@@ -237,10 +237,10 @@ var result;
 //console.log ("got global result");
 //console.log (result);
 
-insertAtTable(paramsInsertDecision);
-//readFromTable (paramsReadDecision);
-//deleteFromTable (paramsDeleteDecision);
-//scanFromTable (paramsScanDecision);
+//insertAtTable(paramsInsertDecision);
+//readFromTable (paramsReadQuestion);
+//deleteFromTable (paramsDeleteQuestion);
+scanFromTable (paramsScanQuestion);
 
 function readFromTable(params) {
   return new Promise((resolve, reject) => {
@@ -249,7 +249,7 @@ function readFromTable(params) {
           console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
           return reject(err);
       } else {
-          console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
+          console.log("Reading Table:", JSON.stringify(data, null, 2));
           result = JSON.stringify(data, null, 2);
           return resolve(result);
       }
@@ -257,17 +257,17 @@ function readFromTable(params) {
   });
 }
 
-readFromTable(paramsReadDecision).then((results) => {
+/*readFromTable(paramsReadDecision).then((results) => {
   console.log('You got your results');
   console.log (results);
-  console.log('Parsing JSON');
-  var obj = JSON.parse(results);
+  //console.log('Parsing JSON');
+  //var obj = JSON.parse(results);
   //from the parameters I passed, I already know which table I am reading
   //so parse the items accordingly
-  console.log(obj.Item.question);
-  console.log(obj.Item.info.decision);
-  console.log(obj.Item.info.email);
-});
+  //console.log(obj.Item.question);
+  //console.log(obj.Item.info.decision);
+  //console.log(obj.Item.info.email);
+});*/
 
 
 
@@ -293,15 +293,6 @@ function deleteFromTable (params){
   });
 }
 
-/*function scanFromTable (params){
-  docClient.scan(params, function(err, data) {
-    if (err) {
-        console.error("Unable to Scan the table. Error JSON:", JSON.stringify(err, null, 2));
-    } else {
-        console.log("Scan succeeded:", JSON.stringify(data, null, 2));
-    }
-  });
-}*/
 
 function scanFromTable(params) {
   return new Promise((resolve, reject) => {
@@ -318,7 +309,7 @@ function scanFromTable(params) {
   });
 }
 
-scanFromTable(paramsScanDecision).then((results) => {
+/*scanFromTable(paramsScanDecision).then((results) => {
   console.log('You got Scan results');
   console.log (results);
   console.log('Parsing Scan DynamoDB JSON');
@@ -339,4 +330,4 @@ scanFromTable(paramsScanDecision).then((results) => {
     console.log(dArray[i]);
     console.log(eArray[i]);
   }
-});
+});*/

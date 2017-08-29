@@ -12,7 +12,7 @@
 <body>
 
 
-<!---------- Top Container ----------->
+<!-- Top Container -->
 <div class = "topContainer" >
     <div class ="logoContainer" >
     <img class = "barImg" src="Images/decision_tracking_logo.png" >
@@ -29,7 +29,7 @@
    	</div>
 </div>
 
-<!----------Main Body Container ----------->
+<!--Main Body Container -->
 <div id = "mainBody" class = "mainbodyContainer" >
 	<div id= "contextBar" class = "contextbarContainer">
 	     <h1 id= "contextheader" >New Question</h1>
@@ -40,15 +40,17 @@
 	<div id ="mainbodyContent" class = "mainbodycontentContainer">
 	<div id = "questionDiv" class ="questionContainer" >
 	<div id = "questionsubDiv"class = "questionsubContainer" >
-		<form  id ="questionformtopID" class =  "questionformtopContainer" onsubmit="/new_question.html" > <!- change your submit action here->
+		<form  id ="questionformtopID" class =  "questionformtopContainer" onsubmit="/new_question.html" >
    			<p style="display:block;padding-top:5px">Enter Question:</p>
   			<textarea id = "txtQuestion" style="width:80%;height:50%;margin-bottom:5px;" placeholder="Ex: what do you want from life?" name="text" rows="14" cols="10" wrap="soft"></textarea> <br>
   			<p style="display:block;padding-top:5px">Question Type:</p>
   			<input style="margin-bottom:10px;" type="radio" name="questionType" value="choice" checked> Yes/No<br>
-  			<input style="margin-bottom:10px;" type="radio" name="questionType" value="textinput"> Text<br>
-  			<p style="display:block;padding-top:5px">Add decision makers email IDs&nbsp&nbsp</p>
+  			<input style="margin-bottom:10px;" type="radio" name="questionType" value="text"> Text<br>
+  			<p style="display:block;padding-top:5px">Add decision makers email IDs</p>
   			<textarea id = "txtParticipantEmail" style="width:50%;height:30%;margin-bottom:20px;" placeholder= "Ex: allpollar@cisco.com, jusmulle@cisco.com, ..." name="text" rows="14" cols="10" wrap="soft"></textarea> <br>
-  		  <button id = "btnInsertQues" type="submit" form="questionformtopID" value="Submit">Submit</button>
+  		  <!--<button id = "btnInsertQues" type="submit" form="questionformtopID" value="Submit">Submit</button>-->
+        <button id = "btnInsertQues" type="button" form="questionformtopID" value="Submit">Submit</button>
+
 	    </form>
   	</div>
 </div>

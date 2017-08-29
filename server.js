@@ -196,12 +196,23 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('insertQuestion', function (message) {
-
+      console.log(' Received Insert Question request:' + message);
       insertAtTable(message);
       console.log('Inserted question at Database:' + message);
 
     });
     socket.on('readQuestion', function (message) {
+
+    });
+    socket.on('scanQuestion', function (message) {
+      console.log('Received scan question table req:' + message);
+
+      scanFromTable(message).then((results) => {
+        console.log('Scan Question Table Results');
+        console.log (results);
+        socket.emit('scanQuestionResults', results);
+        console.log('Scan Done from Question Table:' + results);
+      });
 
     });
     socket.on('deleteQuestion', function (message) {

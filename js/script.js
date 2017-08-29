@@ -9,6 +9,14 @@ var txtQuestionData;
 var txtParticipantEmailData;
 var ansTypeQuestion;
 
+var selectOptions = [];
+var qArray = [];
+var ansTypeArray = [];
+var participantEmailArray = [];
+var index;
+
+
+console.log("hello");
 
 //all socket.on actions here
 
@@ -17,13 +25,17 @@ var ansTypeQuestion;
 $("#btnInsertQues").click(function(){
   console.log("submit question button clicked");
   txtQuestionData = $("#txtQuestion").val();
+  console.log(txtQuestionData);
   txtParticipantEmailData = $("#txtParticipantEmail").val();
-  $('#questionformtopID input').on('change', function() {
+  console.log(txtParticipantEmailData);
+  /*$('#questionformtopID input').on('change', function() {
    ansTypeQuestion = $('input[name=questionType]:checked', '#questionformtopID').val();
    console.log("selected checkbox is");
    console.log(ansTypeQuestion);
-});
+});*/
 
+  ansTypeQuestion = "text";
+  console.log(ansTypeQuestion);
   var paramsInsertQuestion = {
       TableName:tableNameQuestion,
       Item:{
@@ -39,6 +51,73 @@ $("#btnInsertQues").click(function(){
   socket.emit('insertQuestion', paramsInsertQuestion);
   console.log("Inserted question");
 })
+
+
+//actions for view question page
+
+//as soon as the view question page loads
+//below will populate the questions
+
+socket.on('scanQuestionResults', function (results) {
+  console.log("captured scan question results");
+  var obj = JSON.parse(results);
+  var len = Object.keys(obj.Items).length;
+  console.log("len is");
+  console.log(len);
+  for (i=0; i<len; i++){
+    qArray.push(obj.Items[i].question);
+    ansTypeArray.push(obj.Items[i].info.answerType);
+    participantEmailArray.push(obj.Items[i].info.participantEmail);
+
+    console.log(qArray);
+    console.log(ansTypeArray);
+    console.log(participantEmailArray);
+
+    //participantEmail column can contain multiple emails, comma seperated.
+    //to make it scalable, we should search the participantEmail column results
+    //with the current email I am looged into.
+    //when login is implemented, do the scalable version
+
+    //for now, participantEmail column has only one email for the PoC
+  }
+
+  var options = '';
+  for (var i=0;i<=len;i++){
+      selectOptions[i] = [];
+  }
+  selectOptions[0][0] = "Selct a Question";
+  for (var j=1;j<=len;j++){
+      selectOptions[j][0] = qArray[j-1];
+      console.log(selectOptions[j][0]);
+    }
+  for (var i=0;i<=len;i++){
+      options += '<option value="' + selectOptions[i][0]+ '">' + selectOptions[i][0] + '</option>';
+  }
+  $("#quesSelect").html(options);
+});
+
+$( function () {
+      //create param for scanning the Decision Table
+      console.log("msg after loading");
+      var paramsScanQuestion = {
+          TableName:tableNameQuestion
+      };
+      //send socket msg to server
+      socket.emit('scanQuestion',paramsScanQuestion);
+      console.log("Scan Question Table Done");
+ })
+
+$("#quesSelect").click(function(){
+  $('select').change(function(){
+
+    index = $('option:selected',this).index();
+
+  });
+
+})
+
+
+//Below Author: Sunil Aluri
 
 // ---------------Button Click Functions ---------//
           $('#view_question').click(function() {
