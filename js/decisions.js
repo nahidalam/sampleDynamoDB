@@ -1,17 +1,28 @@
 $( document ).ready(function() {
 
-	//var socket = io.connect('http://www.ciscochill.com:80');
 	var socket = io.connect('http://localhost:8080');
 
 	var tableNameDecision = "Decision"
 	var decisionArray = [];
 	var qArray = [];
 	var whoArray = [];
-	var fields = ['a','b','c'];
-	var data = ['p', 'q', 'r'];
-	var who = ['x', 'y', 'z'];
 	var len;
 
+
+	$('#view_question').click(function() {
+		window.location.href = "/view_questions.html"
+	})
+
+	$('#new_question').click(function() {
+		 window.location.href = "/new_questions.html"
+	 })
+
+	 $('#view_decision').click(function() {
+		 window.location.href = "/decisions.html"
+	 })
+	 $('#create_followup').click(function() {
+		 window.location.href = "/followup.html"
+	 })
 
 	var paramsScanDecision = {
 			TableName:tableNameDecision
@@ -55,31 +66,5 @@ $( document ).ready(function() {
 	    return false;
 	});
 	});
-
-
-
-	/*$(function() {
-    var table = $("#resultTable");
-    var rowNum = 3;
-    var resultHtml = '';
-		console.log ("inside function len is");
-		console.log(len);
-
-	for(var i = 0 ; i < rowNum ; i++) {
-		resultHtml += ["<tr>",
-	 "<td>",
-	  fields[i],
-	 "</td>",
-	 "<td>",
-	  data[i],
-	 "</td>",
-	 "<td>",
-	  who[i],
-	 "</td>",
-	 '</tr>'].join("\n");
-	}
-	table.append(resultHtml);
-    return false;
-});*/
 
 });

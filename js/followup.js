@@ -1,7 +1,6 @@
 $( document ).ready(function() {
 
 	var socket = io.connect('http://localhost:8080');
-	//var socket = io();
 
 	//read from database and create based on questions whose decision has been taken already
 	var tableNameDecision = "Decision"
@@ -25,6 +24,22 @@ $( document ).ready(function() {
 	$( '.followupNotFound' ).hide();
 	$("#txtFollowup").hide();
 	$("#btnInsertFollowup").hide();
+
+
+	$('#view_question').click(function() {
+		window.location.href = "/view_questions.html"
+	})
+
+	$('#new_question').click(function() {
+		 window.location.href = "/new_questions.html"
+	 })
+
+	 $('#view_decision').click(function() {
+		 window.location.href = "/decisions.html"
+	 })
+	 $('#create_followup').click(function() {
+		 window.location.href = "/followup.html"
+	 })
 
 
 	socket.on('scanDecisionResults', function (results) {

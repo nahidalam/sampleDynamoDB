@@ -11,10 +11,10 @@ var txtParticipantEmailData;
 var ansTypeQuestion;
 
 var selectOptions = [];
-var qArray = [];
+var quesArray = [];
 var ansTypeArray = [];
 var participantEmailArray = [];
-var index;
+var arrayIndex;
 
 
 $("#buttonDiv").hide();
@@ -69,11 +69,11 @@ socket.on('scanQuestionResults', function (results) {
   console.log("len is");
   console.log(len);
   for (i=0; i<len; i++){
-    qArray.push(obj.Items[i].question);
+    quesArray.push(obj.Items[i].question);
     ansTypeArray.push(obj.Items[i].info.answerType);
     participantEmailArray.push(obj.Items[i].info.participantEmail);
 
-    console.log(qArray);
+    console.log(quesArray);
     console.log(ansTypeArray);
     console.log(participantEmailArray);
 
@@ -91,7 +91,7 @@ socket.on('scanQuestionResults', function (results) {
   }
   selectOptions[0][0] = "Selct a Question";
   for (var j=1;j<=len;j++){
-      selectOptions[j][0] = qArray[j-1];
+      selectOptions[j][0] = quesArray[j-1];
       console.log(selectOptions[j][0]);
     }
   for (var i=0;i<=len;i++){
@@ -118,7 +118,7 @@ $("#quesSelect").click(function(){
   $('select').change(function(){
     $("#buttonDiv").show();
     $("#textDiv").show();
-    index = $('option:selected',this).index();
+    arrayIndex = $('option:selected',this).index();
 
   });
 
@@ -131,8 +131,8 @@ $("#btnSubmitAnswer").click(function(){
   var paramsInsertAnswer = {
       TableName:tableNameAnswer,
       Item:{
-          "question": qArray[index-1],
-          "email": participantEmailArray[index-1],
+          "question": quesArray[arrayIndex-1],
+          "email": participantEmailArray[arrayIndex-1],
           "info":{
               "answer": ansAnswer
           }
