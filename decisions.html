@@ -2,15 +2,41 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/decisions.css">
+        <link rel ="stylesheet"  type ="text/css" href ="css/style.css">
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/decisions.js"></script>
+        <script src="js/script.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.94.0.min.js"></script>
 
         <title>View Decisions</title>
     </head>
     <body>
+      <!-- Top Container -->
+      <div class = "topContainer" >
+          <div class ="logoContainer" >
+          <img class = "barImg" src="Images/decision_tracking_logo.png" >
+          </div>
+      	<div class = "menuContainer" >
+        		<button id = "view_question" class = "menuButtonClass" >View Questions</button>
+        		<button id = "new_question" class = "menuButtonClass">Create New Question</button>
+        		<button id = "view_decision" class = "menuButtonClass">View Decisions</button>
+            <button id = "create_followup" class = "menuButtonClass">Create Followup</button>
+        		<a style= "float:right;margin-right:20px;" href='/logout'>Logout</a>
+        	</div>
+        	<div class ="sidebarContent" >
+         	</div>
+      </div>
 
+      <div id = "mainBody" class = "mainbodyContainer" >
+      	<div id= "contextBar" class = "contextbarContainer">
+      	     <h1 id= "contextheader" >Decisions Taken So Far</h1>
+      	</div>
+      	<div id= "infoBar" class = "infobarContainer">
+      	     <h1 id = "infoheader" >Click on any question to view the followup steps</h1>
+      	</div>
+
+        <br><br>
       <table id="resultTable" class="center">
         <col align="left">
         <col align="left">

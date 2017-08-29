@@ -144,21 +144,27 @@ $("#btnSubmitAnswer").click(function(){
 })
 
 
-//Below Author: Sunil Aluri
 
 // ---------------Button Click Functions ---------//
           $('#view_question').click(function() {
 
-  		    window.location.href = "/view_questions"
+  		    //window.location.href = "/view_questions"
+          window.location.href = "/view_questions.html"
 
           })
 
 		  $('#new_question').click(function() {
-             window.location.href = "/new_questions"
+             //window.location.href = "/new_questions"
+             window.location.href = "/new_questions.html"
 		  })
 
 		  $('#view_decision').click(function() {
-             window.location.href = "/view_decisions"
+             //window.location.href = "/view_decisions"
+             window.location.href = "/decisions.html"
+		  })
+      $('#create_followup').click(function() {
+             //window.location.href = "/view_decisions"
+             window.location.href = "/followup.html"
 		  })
 
 

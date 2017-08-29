@@ -2,14 +2,43 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/followup.css">
+        <link rel ="stylesheet"  type ="text/css" href ="css/style.css">
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/followup.js"></script>
+        <script src="js/script.js"></script>
+        <script  type="text/javascript" src="js/script.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.94.0.min.js"></script>
 
         <title>Follow Up</title>
     </head>
     <body>
+      <!-- Top Container -->
+      <div class = "topContainer" >
+          <div class ="logoContainer" >
+          <img class = "barImg" src="Images/decision_tracking_logo.png" >
+          </div>
+      	<div class = "menuContainer" >
+
+
+        		<button id = "view_question" class = "menuButtonClass" >View Questions</button>
+        		<button id = "new_question" class = "menuButtonClass">Create New Question</button>
+        		<button id = "view_decision" class = "menuButtonClass">View Decisions</button>
+            <button id = "create_followup" class = "menuButtonClass">Create Followup</button>
+        		<a style= "float:right;margin-right:20px;" href='/logout'>Logout</a>
+        	</div>
+        	<div class ="sidebarContent" >
+         	</div>
+      </div>
+
+      <div id = "mainBody" class = "mainbodyContainer" >
+      	<div id= "contextBar" class = "contextbarContainer">
+      	     <h1 id= "contextheader" >Create and View Followups</h1>
+      	</div>
+      	<div id= "infoBar" class = "infobarContainer">
+      	     <h1 id = "infoheader" >Followup steps for a decision taken</h1>
+        </div>
+
       <br>
       <select id="quesSelect"></select>
       <div class ="decision"></div>
