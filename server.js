@@ -220,6 +220,9 @@ io.sockets.on('connection', function (socket) {
     });
 
     socket.on('insertAnswer', function (message) {
+      console.log(' Received Insert Answer request:' + message);
+      insertAtTable(message);
+      console.log('Inserted Answer at Database:' + message);
 
     });
     socket.on('readAnswer', function (message) {

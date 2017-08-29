@@ -5,6 +5,7 @@ var socket = io.connect('http://localhost:8080');
 var whoSendsQuestion = "nahalam@cisco.com";
 
 var tableNameQuestion = "Question"
+var tableNameAnswer = "Answer"
 var txtQuestionData;
 var txtParticipantEmailData;
 var ansTypeQuestion;
@@ -15,6 +16,9 @@ var ansTypeArray = [];
 var participantEmailArray = [];
 var index;
 
+
+$("#buttonDiv").hide();
+$("#textDiv").hide();
 
 console.log("hello");
 
@@ -108,11 +112,34 @@ $( function () {
  })
 
 $("#quesSelect").click(function(){
-  $('select').change(function(){
+  //when selected, enable view to write answer
+  //enable submit button
 
+  $('select').change(function(){
+    $("#buttonDiv").show();
+    $("#textDiv").show();
     index = $('option:selected',this).index();
 
   });
+
+})
+
+$("#btnSubmitAnswer").click(function(){
+  console.log("submit answer button clicked");
+  var ansAnswer = $("#txtAnswer").val();
+  //insert at Answer Table
+  var paramsInsertAnswer = {
+      TableName:tableNameAnswer,
+      Item:{
+          "question": qArray[index-1],
+          "email": participantEmailArray[index-1],
+          "info":{
+              "answer": ansAnswer
+          }
+      }
+  };
+  socket.emit('insertAnswer', paramsInsertAnswer);
+  console.log("inserted at Answer Table");
 
 })
 

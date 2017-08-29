@@ -39,7 +39,7 @@
 	<div id ="mainbodyContent" class = "mainbodycontentContainer">
 	<div id = "questionDiv" class ="questionContainer" >
 	<div id = "questionsubDiv"class = "questionsubContainer" >
-		<form  id ="questionformtopID" class =  "questionformtopContainer" onsubmit="/new_question.html" > 
+		<form  id ="questionformtopID" class =  "questionformtopContainer" onsubmit="/new_question.html" >
    			<p style="display:inline-block;">Select a question to view:</p>
 		    <select id="quesSelect" style="display:inline-block;" name="questions">
 			  </select>
@@ -49,13 +49,16 @@
   				<input style="margin-bottom:10px;" type="radio" name="questionType" value="textinput"> No<br>
 
   				</div>
-  		       <div style="display:none" id = "textDiv" >
+  		       <!--<div style="display:none" id = "textDiv" >-->
+             <div id = "textDiv" >
   				<p style="display:none;padding-top:5px">Text Input</p>
-  				<textarea style="width:50%;height:30%;margin-bottom:20px;" placeholder= "..." name="text" rows="14" cols="10" wrap="soft"></textarea> <br>
+  				<textarea id = "txtAnswer" style="width:50%;height:30%;margin-bottom:20px;" placeholder= "..." name="text" rows="14" cols="10" wrap="soft"></textarea> <br>
 
 	    </div>
-	    <div style="display:none" id="buttonDiv" >
-	     <button type="submit" form="questionformtopID" value="Submit">Submit</button>
+	    <!--<div style="display:none" id="buttonDiv" >-->
+      <div id="buttonDiv" >
+      <!--<button type="submit" form="questionformtopID" value="Submit">Submit</button>-->
+	     <button id ="btnSubmitAnswer" type="button" form="questionformtopID" value="Submit">Submit</button>
 	     </div>
   		</form>
   	</div>

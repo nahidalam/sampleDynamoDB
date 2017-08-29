@@ -240,7 +240,8 @@ var result;
 //insertAtTable(paramsInsertDecision);
 //readFromTable (paramsReadQuestion);
 //deleteFromTable (paramsDeleteQuestion);
-scanFromTable (paramsScanQuestion);
+//scanFromTable (paramsScanQuestion);
+scanFromTable (paramsScanAnswer);
 
 function readFromTable(params) {
   return new Promise((resolve, reject) => {
