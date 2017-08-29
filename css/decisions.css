@@ -1,12 +1,29 @@
-table {
+/*table {
     border: 1px solid black;
+		border-collapse: collapse;
 		width: 80%;
 		align: "center";
+}*/
+
+table {
+  border-collapse: collapse;
 }
+
 table.center {
     margin-left:auto;
     margin-right:auto;
   }
-th, td {
-    border: 1px solid black;
-}
+	th{
+		color:white;
+		font-family:"helvetica"
+	  border: 1px solid #999;
+	  padding: 0.5rem;
+	  text-align: left;
+		background-color:#049FD9;
+	}
+	td{
+		border: 1px solid #999;
+		padding: 0.5rem;
+		text-align: left;
+		font-family:"helvetica"
+	}
