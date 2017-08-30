@@ -14,17 +14,17 @@ table.center {
     margin-left:auto;
     margin-right:auto;
   }
-	th{
+th{
 		color:white;
 		font-family:"helvetica"
 	  border: 1px solid #999;
 	  padding: 0.5rem;
 	  text-align: left;
 		background-color:#049FD9;
-	}
-	td{
+}
+td{
 		border: 1px solid #999;
 		padding: 0.5rem;
 		text-align: left;
 		font-family:"helvetica"
-	}
+}
