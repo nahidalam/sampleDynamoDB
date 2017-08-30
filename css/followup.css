@@ -39,13 +39,3 @@ img{
 table {
   margin: 0 auto;
 }
-
-table.center {
-    margin-left:auto;
-    margin-right:auto;
-  }
-
-td{
-		text-align: center;
-		font-family:"helvetica"
-}
