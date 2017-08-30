@@ -8,10 +8,6 @@ body{
 	overflow-y: hidden;
 }
 
-img{
-	height: 100%
-}
-
 .button{
 	background-color: white;
     border: none;
