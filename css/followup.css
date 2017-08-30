@@ -8,11 +8,6 @@ body{
 	overflow-y: hidden;
 }
 
-#content{
-	width: 100%;
-	height: calc(100% - 100px);
-}
-
 img{
 	height: 100%
 }
@@ -42,7 +37,7 @@ img{
 }
 
 table {
-  margin: 0 auto; /* or margin: 0 auto 0 auto */
+  margin: 0 auto;
 }
 
 table.center {
@@ -50,7 +45,7 @@ table.center {
     margin-right:auto;
   }
 
-	td{
+td{
 		text-align: center;
 		font-family:"helvetica"
-	}
+}
