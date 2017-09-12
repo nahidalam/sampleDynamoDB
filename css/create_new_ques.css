@@ -1,0 +1,173 @@
+#content {
+  float: right;
+  width: 76%;
+  background-color: #E9E9E9;
+}
+#navbar {
+  float: left;
+  width: 24%;
+  /*background-color: #E9E9E9;*/
+  background-color: white;
+}
+#navbar>div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.textText {
+  margin-left: 2px;
+  color: #7F7F7F;
+}
+#logoImage{
+  width: 30%;
+  text-align: center;
+}
+
+#theImg {
+  width: 30%;
+  max-width: 100px;
+  height: auto;
+}
+#quesBuilderText{
+  margin-left: 20px;
+  color: #06252D;
+  font-weight: bolder;
+}
+#textImg {
+  width:40%;
+  max-width: 40px;
+  height:auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#textText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+#multipleChoiceImg {
+  width:30%;
+  max-width: 40px;
+  height:auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#multipleChoiceText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+#dropdownImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#dropdownText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+#starRatingImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#starRatingText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+#ratingScaleImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#ratingScaleText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+#fileUploadImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#fileUploadText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+
+#datetimeImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#datetimeText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+#imageImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#imageText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+#sliderImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#sliderText {
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+}
+
+#welcomeText{
+  
+}
+
+
+.menuButtonClass{
+  background-color: white;
+  border: none;
+  outline: none;
+
+}

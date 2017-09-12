@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/create_new_ques.css">
+        <script src="js/jquery-1.11.0.min.js"></script>
+        <script src="js/create_new_ques.js"></script>
+        <!--<script src="/socket.io/socket.io.js"></script>-->
+        <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.94.0.min.js"></script>
+
+        <title>Create New Question</title>
+    </head>
+    <body>
+      <div id="container">
+        <br>
+        <div id="content">
+          <div id ="welcomeText">Hi </div>
+
+        </div>
+
+        <div id = "fixedLeftTop">
+          <div id = "logoImage"> <img id="theImg"/> </div>
+          <button  id= "view_question" class = "menuButtonClass" >View Questions</button>
+      		<button id = "view_decision" class = "menuButtonClass">Create New Questions</button>
+          <button id = "create_followup" class = "menuButtonClass">View Decisions</button>
+        </div>
+
+        <div id="navbar">
+          <br>
+          <div id ="quesBuilderText">Question Builder</div> <br><br>
+          <div id = "textImage"> <img id="textImg"/></div>
+          <!--<div id = "textText"> Text Answers </div>-->
+          <div class = "textText"> Text Answers </div>
+          <br> <br>
+          <div id = "multipleChoiceImage"> <img id="multipleChoiceImg"/></div>
+          <!--<div id = "multipleChoiceText"> Multiple Choice </div>-->
+          <div class = "textText"> Multiple Choice </div>
+          <!--<div id = "dropdownImage"> <img id="dropdownImg"/></div>-->
+          <!--<div id = "dropdownText"> Dropdown </div>-->
+          <!--<div class = "textText"> Dropdown </div>-->
+          <!--<br> <br>-->
+          <!--<div id = "starRatingImage"> <img id="starRatingImg"/></div>-->
+          <!--<div id = "starRatingText"> Star Rating </div>-->
+          <!--<div class = "textText"> Star Rating </div>-->
+          <br> <br>
+          <div id = "ratingScaleImage"> <img id="ratingScaleImg"/></div>
+          <!--<div id = "ratingScaleText"> Rating Scale</div>-->
+          <div class = "textText"> Rating Scale</div>
+          <br> <br>
+          <div id = "fileUploadImage"> <img id="fileUploadImg"/></div>
+          <!--<div id = "fileUploadText"> File Upload</div>-->
+          <div class = "textText"> File Upload</div>
+          <br> <br>
+          <div id = "datetimeImage"> <img id="datetimeImg"/></div>
+          <!--<div id = "datetimeText"> Date/Time</div>-->
+          <div class = "textText"> Date/Time</div>
+          <br> <br>
+          <div id = "imageImage"> <img id="imageImg"/></div>
+          <div class = "textText"> Image </div>
+          <br> <br>
+          <div id = "sliderImage"> <img id="sliderImg"/></div>
+          <div class = "textText"> Slider </div>
+        </div>
+      </div>
+    </body>
+    </html>
