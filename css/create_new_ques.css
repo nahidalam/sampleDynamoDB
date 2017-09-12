@@ -118,6 +118,109 @@
 #welcomeDescriptionText{
   text-align: center;
 }
+#buttonDiv{
+  text-align: center;
+}
+
+.contextbarContainer{
+  background-color:#004BAF;
+  width:95%;
+  height:8%;
+  margin-bottom:0px;
+  border:none;
+  text-align: center;
+  margin:0 auto;
+}
+
+.contextbarContainer h1{
+  color:white;
+  text-align: left;
+  font-size:14pt;
+  margin-left:40px;
+  padding-top:20px;
+}
+
+.infobarContainer{
+  background-color:#049FD9;
+  width:95%;
+  height:5%;
+  margin-top:0px;
+  padding-top:0px;
+  text-align: center;
+  margin:0 auto;
+}
+
+.infobarContainer h1{
+  color:white;
+  text-align: left;
+  font-size:10pt;
+  margin-left:40px;
+  padding-top:10px;
+  margin-top:0px;
+}
+
+.questionsubContainer{
+
+  width:95%;
+  background-color:white;
+  margin:0 auto;
+}
+
+.questionDivContainer{
+
+  width:95%;
+  background-color:#E9E9E9;
+  margin:0 auto;
+}
+
+#textBeforeQues{
+  margin-left:40px;
+  color: #7F7F7F;
+  float: left;
+}
+
+#txtQuestion{
+  width: 750px;
+  margin-left:10px;
+}
+
+.sendtoallDivClass{
+  width:95%;
+  background-color:white;
+  margin:0 auto;
+
+}
+
+input[type=checkbox] {
+  background: #E9E9E9;
+}
+
+#allCheckbox{
+}
+
+#navbarleft {
+  float: left;
+  width: 50%;
+  background-color: white;
+}
+
+#navbarright {
+  float: right;
+  width: 50%;
+  background-color: white;
+}
+#btnsendQuestion{
+  background-color: #8FDC6F;
+  width:200px;
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 auto;
+}
 
 
 .menuButtonClass{

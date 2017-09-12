@@ -16,10 +16,47 @@
         <div id="content">
           <div id ="welcomeText">Hi </div>
           <div id ="welcomeDescriptionText">Let's create a new question </div>
-          <div id="newquestionDiv"> </div>
-          <div id="participantDiv"> </div>
-          <button  id= "btnsendQuestion">Send Questions</button>
+          <div id= "contextBar" class = "contextbarContainer">
+        	     <h1 id= "contextheader" >New Question</h1>
+        	</div>
+        	<div id= "infoBar" class = "infobarContainer">
+        	     <h1 id = "infoheader" >Use the question builder to create a new question</h1>
+        	</div>
+          <div id = "questionsubDiv"class = "questionsubContainer" >
+            <br>
+            <div id = "questionDiv"class = "questionDivContainer" >
+              <br>
+              <form  id ="questionformtopID" class =  "questionformtopContainer">
+                  <div id="textBeforeQues"> Q </div>
+                  <input type="text" id = "txtQuestion" placeholder="Enter your question here...">
+                  <br> <br>
+                  <div id="textBeforeQues"> Answer Type : Text </div>
+          	    </form>
+                <br>
 
+            </div>
+            <br>
+          </div>
+          <br>
+          <div id= "infoBar" class = "infobarContainer">
+        	     <h1 id = "infoheader" >Invite Participants to Answer</h1>
+        	</div>
+          <div id = "questionsubDiv"class = "questionsubContainer" >
+            <br>
+            <div id = "sendtoallDiv" class = "sendtoallDivClass">
+            <input type="checkbox" id = "allCheckbox" name="sendtoall" value="all">Send to all<br>
+          </div>
+          <div id="navbarleft">
+            
+          </div>
+          </div>
+
+          <br>
+          <div id="participantDiv"> </div> <br> <br>
+          <div id="buttonDiv">
+            <button  id= "btnsendQuestion">Send Questions</button>
+          </div>
+          <br>
         </div>
 
         <div id = "fixedLeftTop">
@@ -37,13 +74,6 @@
           <br> <br>
           <div id = "multipleChoiceImage"> <img id="multipleChoiceImg"/></div>
           <div class = "textText"> Multiple Choice </div>
-          <!--<div id = "dropdownImage"> <img id="dropdownImg"/></div>-->
-          <!--<div id = "dropdownText"> Dropdown </div>-->
-          <!--<div class = "textText"> Dropdown </div>-->
-          <!--<br> <br>-->
-          <!--<div id = "starRatingImage"> <img id="starRatingImg"/></div>-->
-          <!--<div id = "starRatingText"> Star Rating </div>-->
-          <!--<div class = "textText"> Star Rating </div>-->
           <br> <br>
           <div id = "ratingScaleImage"> <img id="ratingScaleImg"/></div>
           <div class = "textText"> Rating Scale</div>
