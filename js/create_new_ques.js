@@ -13,4 +13,6 @@ $(document).ready(function(){
   $('#sliderImage').prepend('<img id="sliderImg" src="Images/ic_slider.png" />')
 
   var name = "Justin" //will be passed from the login page through socket eventually
+
+  $("#welcomeText").append(  name );
 });

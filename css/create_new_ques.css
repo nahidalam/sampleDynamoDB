@@ -55,24 +55,12 @@
   float: left;
 }
 
-#multipleChoiceText {
-  margin-left: 10px;
-  float: left;
-  color: #7F7F7F;
-}
-
 #dropdownImg {
   width:30%;
   max-width: 40px;
   height: auto;
   margin-left: 20px;
   float: left;
-}
-
-#dropdownText {
-  margin-left: 10px;
-  float: left;
-  color: #7F7F7F;
 }
 
 #starRatingImg {
@@ -83,12 +71,6 @@
   float: left;
 }
 
-#starRatingText {
-  margin-left: 10px;
-  float: left;
-  color: #7F7F7F;
-}
-
 #ratingScaleImg {
   width:30%;
   max-width: 40px;
@@ -97,24 +79,12 @@
   float: left;
 }
 
-#ratingScaleText {
-  margin-left: 10px;
-  float: left;
-  color: #7F7F7F;
-}
-
 #fileUploadImg {
   width:30%;
   max-width: 40px;
   height: auto;
   margin-left: 20px;
   float: left;
-}
-
-#fileUploadText {
-  margin-left: 10px;
-  float: left;
-  color: #7F7F7F;
 }
 
 
@@ -126,24 +96,12 @@
   float: left;
 }
 
-#datetimeText {
-  margin-left: 10px;
-  float: left;
-  color: #7F7F7F;
-}
-
 #imageImg {
   width:30%;
   max-width: 40px;
   height: auto;
   margin-left: 20px;
   float: left;
-}
-
-#imageText {
-  margin-left: 10px;
-  float: left;
-  color: #7F7F7F;
 }
 
 #sliderImg {
@@ -154,14 +112,11 @@
   float: left;
 }
 
-#sliderText {
-  margin-left: 10px;
-  float: left;
-  color: #7F7F7F;
-}
-
 #welcomeText{
-  
+  text-align: center;
+}
+#welcomeDescriptionText{
+  text-align: center;
 }
 
 
