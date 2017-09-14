@@ -38,21 +38,50 @@
             <br>
           </div>
           <br>
+          <!--Lower section: Inviting Participants-->
           <div id= "infoBar" class = "infobarContainer">
         	     <h1 id = "infoheader" >Invite Participants to Answer</h1>
         	</div>
-          <div id = "questionsubDiv"class = "questionsubContainer" >
+          <div id = "participantDiv"class = "questionsubContainer" >
             <br>
             <div id = "sendtoallDiv" class = "sendtoallDivClass">
-            <input type="checkbox" id = "allCheckbox" name="sendtoall" value="all">Send to all<br>
-          </div>
-          <div id="navbarleft">
-            
-          </div>
-          </div>
+            <input type="checkbox" id = "allCheckbox" name="sendtoall" value="all">Send to all<br><br>
 
-          <br>
-          <div id="participantDiv"> </div> <br> <br>
+            <!--<div id="participantcontainer">-->
+
+            <!--Left column: show images in the left side of the participant panel-->
+            <div id="navbarleft">
+              <input type="checkbox" id = "nameCheckbox" name="sendtoone" value="one">
+              <div id = "shannonImage"> <img id="shannonImg"/></div>
+              <div class = "textTextName"> Shannon Lucas</div>
+              <br><br>
+
+              <input type="checkbox" id = "nameCheckbox" name="sendtoone" value="one">
+              <div id = "aliceImage"> <img id="aliceImg"/></div>
+              <div class = "textTextName"> Alice Pollard</div>
+              <br> <br>
+            </div>
+
+            <!--Right column: show images in the right side of the participant panel-->
+            <div id="navbarright">
+
+              <input type="checkbox" id = "nameCheckbox" name="sendtoone" value="one">
+              <div id = "shannonImage"> <img id="shannonImg"/></div>
+              <div class = "textTextName"> Shannon Lucas</div>
+              <br><br>
+
+              <input type="checkbox" id = "nameCheckbox" name="sendtoone" value="one">
+              <div id = "aliceImage"> <img id="aliceImg"/></div>
+              <div class = "textTextName"> Alice Pollard</div>
+              <br> <br>
+
+            </div>
+          <!--</div>-->
+            </div>
+
+
+          </div>
+          <br> <br>
           <div id="buttonDiv">
             <button  id= "btnsendQuestion">Send Questions</button>
           </div>

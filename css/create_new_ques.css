@@ -41,10 +41,32 @@
   float: left;
 }
 
-#textText {
+#nameCheckbox{
+  float: left;
+  margin-left: 20px;
+}
+
+.textTextName{
   margin-left: 10px;
   float: left;
   color: #7F7F7F;
+
+}
+
+#shannonImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+}
+#aliceImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
 }
 
 #multipleChoiceImg {
@@ -198,8 +220,27 @@ input[type=checkbox] {
 #allCheckbox{
 }
 
+#participantcontainer{
+  -moz-column-count:2;
+    -webkit-column-count:2;
+    column-count:2;
+    height: 145px;
+    width: 80px;
+}
+
+.block {
+    width: 400px;
+    background-color: white;
+    margin: 0 0 5px 0;
+}
+
 #navbarleft {
-  float: left;
+  /*float: left;*/
+  width: 50%;
+  background-color: white;
+}
+
+#navbarright{
   width: 50%;
   background-color: white;
 }

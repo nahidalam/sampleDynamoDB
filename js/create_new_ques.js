@@ -11,6 +11,8 @@ $(document).ready(function(){
   $('#datetimeImage').prepend('<img id="datetimeImg" src="Images/ic_datetime.png" />')
   $('#imageImage').prepend('<img id="imageImg" src="Images/ic_image.png" />')
   $('#sliderImage').prepend('<img id="sliderImg" src="Images/ic_slider.png" />')
+  $('#shannonImage').prepend('<img id="shannonImg" src="Images/ic_shannon@2x.png" />')
+  $('#aliceImage').prepend('<img id="aliceImg" src="Images/ic_alice@2x.png" />')
 
   var name = "Justin" //will be passed from the login page through socket eventually
 
