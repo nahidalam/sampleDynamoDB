@@ -1,0 +1,57 @@
+#participantcontainer {
+    -moz-column-count:2;
+    -webkit-column-count:2;
+    column-count:2;
+    height: 200px;
+    width: 800px;
+}
+
+.block {
+    width: 400px;
+    height:30px;
+    background-color: red;
+    margin: 0 0 5px 0;
+}
+
+#nameCheckbox{
+  float: left;
+  margin-left: 20px;
+}
+
+.textTextName{
+  margin-left: 10px;
+  float: left;
+  color: #7F7F7F;
+
+}
+
+#shannonImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+}
+#aliceImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
+}
+#whitImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+}
+#sunilImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
+}
