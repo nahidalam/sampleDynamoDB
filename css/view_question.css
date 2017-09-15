@@ -20,6 +20,12 @@
   /*color: #7F7F7F;*/
   color: black;
 }
+
+.textTextExpandedQues {
+  margin-left: 20px;
+  /*color: #7F7F7F;*/
+  color: black;
+}
 .textTextQuestion{
   margin-left: 2px;
   color: black;
@@ -85,7 +91,7 @@
   width:30%;
   max-width: 30px;
   height:auto;
-  margin-left: 5px;
+  margin-left: 36px;
   float: left;
 }
 #sunilImg{
@@ -108,7 +114,7 @@
   width:30%;
   max-width: 30px;
   height:auto;
-  margin-left: 5px;
+  margin-left: 36px;
   float: left;
 
 }
@@ -235,12 +241,13 @@
 .questionDivContainer{
 
   width:95%;
-  background-color:#E9E9E9;
+  /*background-color:#E9E9E9;*/
+  background-color: #F7F7F8;
   margin:0 auto;
 }
 
 #textBeforeQues{
-  margin-left:40px;
+  margin-left:20px;
   color: #7F7F7F;
   float: left;
 }
