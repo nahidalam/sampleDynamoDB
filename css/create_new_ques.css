@@ -7,7 +7,7 @@
   float: left;
   width: 24%;
   /*background-color: #E9E9E9;*/
-  background-color: white;
+  background-color: #F7F7F8;
 }
 #navbar>div {
   display: inline-block;
@@ -49,7 +49,8 @@
 .textTextName{
   margin-left: 10px;
   float: left;
-  color: #7F7F7F;
+  /*color: #7F7F7F;*/
+  color: black;
 
 }
 
@@ -76,6 +77,22 @@
   float: left;
 }
 #sunilImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
+}
+#nahidImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
+}
+#joannaImg{
   width:30%;
   max-width: 30px;
   height:auto;
@@ -199,7 +216,7 @@
 .questionsubContainer{
 
   width:95%;
-  background-color:white;
+  background-color:#F7F7F8;
   margin:0 auto;
 }
 
@@ -223,7 +240,7 @@
 
 .sendtoallDivClass{
   width:95%;
-  background-color:white;
+  background-color:#F7F7F8;
   margin:0 auto;
 
 }
@@ -239,15 +256,22 @@ input[type=checkbox] {
     -moz-column-count:2;
     -webkit-column-count:2;
     column-count:2;
-    height: 200px;
+    height: 110px;
     width: 800px;
 }
 
 .block {
     width: 400px;
-    height:30px;
-    background-color: white;
-    margin: 0 0 5px 0;
+    height:40px;
+    background-color: #F7F7F8;
+    margin: 0 0 5px 40px;
+}
+
+.blockright {
+    width: 400px;
+    height:40px;
+    background-color: #F7F7F8;
+    margin: 0 0 1px 150px;
 }
 
 #navbarleft {
@@ -268,15 +292,17 @@ input[type=checkbox] {
 }
 #btnsendQuestion{
   background-color: #8FDC6F;
-  width:200px;
+  width:240px;
+  height: 40px;
   border: none;
   color: white;
-  padding: 15px 20px;
+  /*padding: 15px 20px;*/
   text-align: center;
-  text-decoration: none;
+  /*text-decoration: none;*/
   display: inline-block;
   font-size: 16px;
   margin: 0 auto;
+  border-radius: 8px;
 }
 
 
