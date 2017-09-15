@@ -1,0 +1,326 @@
+#content {
+  float: right;
+  width: 70%;
+  background-color: #E9E9E9;
+}
+#navbar {
+  float: left;
+  width: 30%;
+  height: 576px;
+  /*background-color: #E9E9E9;*/
+  background-color: #F7F7F8;
+}
+#navbar>div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.textText {
+  margin-left: 2px;
+  /*color: #7F7F7F;*/
+  color: black;
+}
+.textTextQuestion{
+  margin-left: 2px;
+  color: black;
+
+}
+#logoImage{
+  width: 30%;
+  text-align: center;
+}
+
+#theImg {
+  width: 50%;
+  max-width: 100px;
+  height: auto;
+
+}
+#quesBuilderText{
+  margin-left: 20px;
+  color: #06252D;
+  font-weight: bolder;
+}
+#descText{
+  margin-left: 20px;
+  color: #06252D;
+}
+#textImg {
+  width:40%;
+  max-width: 40px;
+  height:auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#nameCheckbox{
+  float: left;
+  margin-left: 20px;
+}
+
+.textTextName{
+  margin-left: 10px;
+  float: left;
+  /*color: #7F7F7F;*/
+  color: black;
+
+}
+
+#shannonImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+}
+#aliceImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
+}
+#whitImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+}
+#sunilImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
+}
+#nahidImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
+}
+#joannaImg{
+  width:30%;
+  max-width: 30px;
+  height:auto;
+  margin-left: 5px;
+  float: left;
+
+}
+
+#multipleChoiceImg {
+  width:30%;
+  max-width: 40px;
+  height:auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#dropdownImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#starRatingImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#ratingScaleImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#fileUploadImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+
+#datetimeImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#imageImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#sliderImg {
+  width:30%;
+  max-width: 40px;
+  height: auto;
+  margin-left: 20px;
+  float: left;
+}
+
+#welcomeText{
+  text-align: center;
+}
+#welcomeDescriptionText{
+  text-align: center;
+}
+#buttonDiv{
+  text-align: center;
+}
+
+.contextbarContainer{
+  background-color:#004BAF;
+  width:95%;
+  height:8%;
+  margin-bottom:0px;
+  border:none;
+  text-align: center;
+  margin:0 auto;
+}
+
+.contextbarContainer h1{
+  color:white;
+  text-align: left;
+  font-size:14pt;
+  margin-left:40px;
+  padding-top:20px;
+}
+
+.infobarContainer{
+  background-color:#049FD9;
+  width:95%;
+  height:5%;
+  margin-top:0px;
+  padding-top:0px;
+  text-align: center;
+  margin:0 auto;
+}
+
+.infobarContainer h1{
+  color:white;
+  text-align: left;
+  font-size:10pt;
+  margin-left:40px;
+  padding-top:10px;
+  margin-top:0px;
+}
+
+.questionsubContainer{
+
+  width:95%;
+  background-color:#F7F7F8;
+  margin:0 auto;
+}
+
+.questionDivContainer{
+
+  width:95%;
+  background-color:#E9E9E9;
+  margin:0 auto;
+}
+
+#textBeforeQues{
+  margin-left:40px;
+  color: #7F7F7F;
+  float: left;
+}
+
+#txtQuestion{
+  width: 750px;
+  margin-left:10px;
+}
+
+.sendtoallDivClass{
+  width:95%;
+  background-color:#F7F7F8;
+  margin:0 auto;
+
+}
+
+input[type=checkbox] {
+  background: #E9E9E9;
+}
+
+#allCheckbox{
+}
+
+#participantcontainer {
+    -moz-column-count:2;
+    -webkit-column-count:2;
+    column-count:2;
+    height: 110px;
+    width: 800px;
+}
+
+.block {
+    width: 400px;
+    height:40px;
+    background-color: #F7F7F8;
+    margin: 0 0 5px 40px;
+}
+
+.blockright {
+    width: 400px;
+    height:40px;
+    background-color: #F7F7F8;
+    margin: 0 0 1px 150px;
+}
+
+#navbarleft {
+  /*float: left;*/
+  width: 50%;
+  background-color: white;
+}
+
+#navbarright{
+  width: 50%;
+  background-color: white;
+}
+
+#navbarright {
+  float: right;
+  width: 50%;
+  background-color: white;
+}
+#btnsendQuestion{
+  background-color: #8FDC6F;
+  width:240px;
+  height: 40px;
+  border: none;
+  color: white;
+  /*padding: 15px 20px;*/
+  text-align: center;
+  /*text-decoration: none;*/
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+
+.menuButtonClass{
+  background-color: white;
+  border: none;
+  outline: none;
+
+}
