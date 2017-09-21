@@ -6,7 +6,8 @@
 #navbar {
   float: left;
   width: 24%;
-  height: 576px;
+  /*height: 576px;*/
+  height: 558px;
   /*background-color: #E9E9E9;*/
   background-color: #F7F7F8;
 }
