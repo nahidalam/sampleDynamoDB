@@ -19,6 +19,8 @@
 .textText {
   margin-left: 2px;
   color: #7F7F7F;
+  font-size: 14px;
+  font-family: Helvetica;
 }
 #logoImage{
   width: 30%;
@@ -35,6 +37,8 @@
   margin-left: 20px;
   color: #06252D;
   font-weight: bolder;
+  font-size: 16px;
+  font-family: Helvetica;
 }
 #textImg {
   width:40%;
@@ -54,6 +58,8 @@
   float: left;
   /*color: #7F7F7F;*/
   color: black;
+  font-size: 14px;
+  font-family: Helvetica;
 
 }
 
@@ -171,9 +177,13 @@
 
 #welcomeText{
   text-align: center;
+  font-size: 14px;
+  font-family: Helvetica;
 }
 #welcomeDescriptionText{
   text-align: center;
+  font-size: 14px;
+  font-family: Helvetica;
 }
 #buttonDiv{
   text-align: center;
@@ -253,6 +263,8 @@ input[type=checkbox] {
 }
 
 #allCheckbox{
+  font-size: 14px;
+  font-family: Helvetica;
 }
 
 #participantcontainer {
@@ -313,5 +325,7 @@ input[type=checkbox] {
   background-color: white;
   border: none;
   outline: none;
+  font-size: 12px;
+  font-family: Helvetica;
 
 }
